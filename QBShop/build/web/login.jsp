@@ -50,23 +50,35 @@
         
          <div class="container py-5">
         <div class="row py-5">
-            <form class="col-md-9 m-auto" method="post" role="form">
-                <div class="row">
+            <h1 class="text-md-center alert-light">Đăng nhập</h1>
+            <form class="col-md-9 m-auto" method="post" role="form" action="login">
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"></span>
+                    <p>${mess}</p>
+                    </div>
+                <div class="row m-1">
                     <ul><div class="form-group col-md-6 mb-3">
-                        <label for="inputname">Tài khoản</label>
-                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Tài khoản">
+                        <label for="inputname">Email</label>
+                        <input type="email" class="form-control mt-1"  name="email" placeholder="email@abc.com">
                     </div></ul>
                     <ul><div class="form-group col-md-6 mb-3">
                         <label for="inputemail">Mật khẩu</label>
-                        <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Mật khẩu">
+                        <input type="PassWord" class="form-control mt-1"  name="pass" placeholder="Mật khẩu">
+                        
                     </div></ul>
+                    
+                    <p class="alert-light text-md-start">Nếu không có tài khoản, hãy chọn <a href="register.jsp">đăng ký</a></p>
                     
                 </div>
                
-                <div class="row">
-                    <div class="col text-end mt-2">
-                        <button type="submit" class="btn btn-success btn-lg px-3">Đăng nhập </button>
-                    </div>
+                <div class="row list-inline-item m-3">
+                    
+                    <ul class="row list-inline-item">                    
+                            <div class="col text-center mt-1 ">
+                                <button type="submit" class="btn btn-success btn-lg px-3 " >Đăng nhập </button>
+                            </div>
+                    </ul>
+                    
                 </div>
             </form>
         </div>
