@@ -8,7 +8,6 @@ package control;
 import dao.CategoryDAO;
 import dao.GenderDAO;
 import dao.ProductDAO;
-import dao.StyleDAO;
 import java.io.IOException;
 
 import java.sql.SQLException;
@@ -23,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.Category;
 import model.Gender;
 import model.Product;
-import model.Style;
 
 /**
  *
@@ -47,20 +45,19 @@ public class GenderControl extends HttpServlet {
         
         String GenID = request.getParameter("gender");
         
-        GenderDAO genderDAO = new GenderDAO();
-        StyleDAO styleDAO = new StyleDAO();         
+        GenderDAO genderDAO = new GenderDAO();        
         ProductDAO productDAO = new ProductDAO();
         CategoryDAO categoryDAO = new CategoryDAO();
         
         List<Product> listP = productDAO.getListProductByGender(Long.parseLong(GenID));
         List<Category> listC = categoryDAO.getListCategory();
         List<Gender> listG = genderDAO.getListGender();
-        List<Style> listS = styleDAO.getListStyle();
+
         
         request.setAttribute("listP" ,listP);
         request.setAttribute("listC", listC);
         request.setAttribute("listG", listG);
-        request.setAttribute("listS", listS);
+  
         
        request.getRequestDispatcher("shop.jsp").forward(request, response);
     }

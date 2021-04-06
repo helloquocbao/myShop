@@ -8,7 +8,7 @@ package control;
 import dao.CategoryDAO;
 import dao.GenderDAO;
 import dao.ProductDAO;
-import dao.StyleDAO;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Category;
 import model.Gender;
 import model.Product;
-import model.Style;
+
 
 /**
  *
@@ -49,17 +49,17 @@ public class CategoryControl extends HttpServlet {
        ProductDAO productDAO = new ProductDAO();
        CategoryDAO categoryDAO = new CategoryDAO();
        GenderDAO genderDAO = new GenderDAO();
-       StyleDAO styleDAO = new StyleDAO();
+ 
        
        List<Product> listP = productDAO.getListProductByCategory(Long.parseLong(cateID));
        List<Category> listC = categoryDAO.getListCategory();
        List<Gender> listG = genderDAO.getListGender();
-       List<Style> listS = styleDAO.getListStyle();
+
        
        request.setAttribute("listP", listP);
        request.setAttribute("listC", listC);
        request.setAttribute("listG", listG);
-       request.setAttribute("listS", listS);
+
        
        request.getRequestDispatcher("shop.jsp").forward(request, response);
     }

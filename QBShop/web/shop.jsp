@@ -6,8 +6,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.Gender"%>
 <%@page import="dao.GenderDAO"%>            
-<%@page import="model.Style"%>
-<%@page import="dao.StyleDAO"%> 
 <%@page import="model.Category"%>
 <%@page import="dao.CategoryDAO"%> 
 
@@ -37,9 +35,7 @@
             GenderDAO genderDAO = new GenderDAO();
         %>
 
-        <%
-            StyleDAO styleDAO = new StyleDAO();
-        %>
+
         <%
             CategoryDAO categoryDAO = new CategoryDAO();
         %>
@@ -103,16 +99,7 @@
                                     
                             </ul>
                         </li>
-                        <li class="pb-3">
-                            <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                                Phong cách
-                                <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
-                            </a>
-                            <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                            <c:forEach items="${listS}" var="o">
-                                <li><a class="text-decoration-none" href="style?style=${o.styleID}">${o.styleName}</a></li>
-                            </c:forEach>
-                            </ul>
+                       
                         </li>
                         <li class="pb-3">
                             <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
