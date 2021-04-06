@@ -164,7 +164,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">${o.productName}</a>
+                                <a href="shop-single?product=${o.productID}" class="h3 text-decoration-none">${o.productName}</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li>M/L/X/XL</li>
                                     <li class="pt-2">
@@ -190,22 +190,9 @@
                     </div>
                             
                         </c:forEach>          
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                                                         
                         
                     </div>
-
-
-                    
-                    
-                    
-                    
-
 
                     <div div="row">
                         <ul class="pagination pagination-lg justify-content-end">
@@ -260,16 +247,16 @@
                                         <div class="carousel-item active">
                                             <div class="row">
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="img/brand_01.png" alt="Brand Logo"></a>
+                                                    <a href="#"><img class="img-fluid brand-img " src="img/brand_01.png" alt="Brand Logo"></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="img/brand_02.png" alt="Brand Logo"></a>
+                                                    <a href="#"><img class="img-fluid brand-img " src="img/brand_02.png" alt="Brand Logo"></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="img/brand_03.png" alt="Brand Logo"></a>
+                                                    <a href="#"><img class="img-fluid brand-img " src="img/brand_03.png" alt="Brand Logo"></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="img/brand_04.png" alt="Brand Logo"></a>
+                                                    <a href="#"><img class="img-fluid brand-img " src="img/brand_04.png" alt="Brand Logo"></a>
                                                 </div>
                                             </div>
                                         </div>
