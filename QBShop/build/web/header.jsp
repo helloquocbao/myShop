@@ -29,17 +29,17 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="Index.jsp">Home</a>
+                            <a class="nav-link" href="Index.jsp">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.jsp">About</a>
+                            <a class="nav-link" href="about.jsp">Thông tin</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="shop">Shop</a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.jsp">Contact</a>
+                            <a class="nav-link" href="contact.jsp">Liên hệ</a>
                         </li>
                     </ul>
                 </div>
