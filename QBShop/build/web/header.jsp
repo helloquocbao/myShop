@@ -5,6 +5,7 @@
 --%>
 
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -41,6 +42,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.jsp">Liên hệ</a>
                         </li>
+                        <c:if  test="${sessionScope.acc  != null}">
+                        <li class="nav-item">
+                        <a class="nav-link" href="account.jsp">${sessionScope.acc.fullName}</a>
+                        </li>
+                        </c:if>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -59,10 +65,19 @@
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                     </a>
+                    <c:if test="${sessionScope.acc  == null}">
                     <a class="nav-icon position-relative text-decoration-none" href="login.jsp">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">abc</span>
                     </a>
+                    </c:if>
+                    
+                    <c:if  test="${sessionScope.acc  != null}">                        
+                        <a class="nav-icon position-relative text-decoration-none" href="logout">               
+                            <i class="fas fa-sign-out-alt text-dark mr-3"></i>
+                        </a>
+                        </c:if>
+                           
                 </div>
             </div>
 

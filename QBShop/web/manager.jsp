@@ -45,21 +45,172 @@
     </nav>
         <jsp:include page="header.jsp"></jsp:include>
         
-        <form>
- <div class="row">
-  <div class="block col-md-4" style="color: red">
-    <div class="block red ">Red</div>
-  </div>
+         <h3 style="padding-top: 2%;padding-left: 2%">Giỏ hàng của bạn</h3>
+      
+        <div style="display: flex;justify-content: space-between; ">
+           
+            <div class="load_list_hang" style="box-sizing: border-box;  width: 70%" >           
+                <ul>
+                    <li >
 
-  <div class="block col-md-4" style="color: greenyellow">
-    <div class="block green ">Green</div>
-  </div>
+                        <div style="display:block; margin: 1%; width:80%; background-color: pink;  ">
+                            <div class="cart-products__inner" style="display: flex">
+                                <div class="cart-products__img">
+                                    <a data-view-id="cart_main_product" data-view-index="fbc9d373-9c65-11eb-b962-ea5c4bde5afa" href="/product-p58448882.html?spid=59300677">
+                                        <img style="padding:5%" src="https://salt.tikicdn.com/cache/200x200/ts/product/21/38/ab/ac8e85d0d1654f1f299f0a67f4cf9fe8.jpg" alt="Thanh xốp chắn khe cửa đa năng thông minh">
+                                    </a>
+                                </div>
+                                <div class="cart-products__content" style="display: block; width: calc(100% - 60px)">
+                                    <div class="cart-products__content--inner"  style="display: flex; justify-content: space-between;">
+                                        <div class="cart-products__desc">
+                                            <a class="cart-products__name" href="/product-p58448882.html?spid=59300677">Ao thun</a>
+                                            <p class="cart-products__badge"></p><p class="cart-products__actions">
+                                                <span >Xóa</span>
+                                            </p>
+                                        </div>
+                                        <div class="cart-products__details" style="display: flex">
+                                            <div class="cart-products__pricess" >
+                                                <p class="cart-products__real-prices" style="">29.500đ</p>
+                                                <p class="cart-products__discount-prices">
+                                                    <del>130.000đ</del>
+                                                    <span class="cart-products__percent-prices">-77%</span>
+                                                </p>
+                                            </div>
+                                            <div class="cart-products__qty"><div class="CartQty__StyledCartQty-o1bx97-0 iaIXXn">
+                                                    <span data-view-id="cart_main_quantity.decrease" data-view-index="fbc9d373-9c65-11eb-b962-ea5c4bde5afa" class="qty-decrease qty-disable">-</span>
+                                                    <input type="tel" class="qty-input" value="1">
+                                                    <span data-view-id="cart_main_quantity.increase" data-view-index="fbc9d373-9c65-11eb-b962-ea5c4bde5afa" class="qty-increase ">+</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li >
 
-  <div class="block col-md-4" style="color: blue">
-    <div class=" block blue ">Blue</div>
-  </div>
-</div>
-            </form>
+                        <div style="display:block; margin: 1%; width:80%; background-color: pink;  ">
+                            <div class="cart-products__inner" style="display: flex">
+                                <div class="cart-products__img">
+                                    <a data-view-id="cart_main_product" data-view-index="fbc9d373-9c65-11eb-b962-ea5c4bde5afa" href="/product-p58448882.html?spid=59300677">
+                                        <img style="padding:5%" src="https://salt.tikicdn.com/cache/200x200/ts/product/21/38/ab/ac8e85d0d1654f1f299f0a67f4cf9fe8.jpg" alt="Thanh xốp chắn khe cửa đa năng thông minh">
+                                    </a>
+                                </div>
+                                <div class="cart-products__content" style="display: block; width: calc(100% - 60px)">
+                                    <div class="cart-products__content--inner"  style="display: flex; justify-content: space-between;">
+                                        <div class="cart-products__desc">
+                                            <a class="cart-products__name" href="/product-p58448882.html?spid=59300677">Ao thun</a>
+                                            <p class="cart-products__badge"></p><p class="cart-products__actions">
+                                                <span >Xóa</span>
+                                            </p>
+                                        </div>
+                                        <div class="cart-products__details" style="display: flex">
+                                            <div class="cart-products__pricess" >
+                                                <p class="cart-products__real-prices" style="">29.500đ</p>
+                                                <p class="cart-products__discount-prices">
+                                                    <del>130.000đ</del>
+                                                    <span class="cart-products__percent-prices">-77%</span>
+                                                </p>
+                                            </div>
+                                            <div class="cart-products__qty"><div class="CartQty__StyledCartQty-o1bx97-0 iaIXXn">
+                                                    <span data-view-id="cart_main_quantity.decrease" data-view-index="fbc9d373-9c65-11eb-b962-ea5c4bde5afa" class="qty-decrease qty-disable">-</span>
+                                                    <input type="tel" class="qty-input" value="1">
+                                                    <span data-view-id="cart_main_quantity.increase" data-view-index="fbc9d373-9c65-11eb-b962-ea5c4bde5afa" class="qty-increase ">+</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                           <div style="display:block; margin: 1%; width:80%;background-color: pink;">
+                            <div class="cart-products__inner" style="display: flex">
+                                <div class="cart-products__img">
+                                    <a data-view-id="cart_main_product" data-view-index="fbc9d373-9c65-11eb-b962-ea5c4bde5afa" href="/product-p58448882.html?spid=59300677">
+                                        <img style="padding:5%"  src="https://salt.tikicdn.com/cache/200x200/ts/product/21/38/ab/ac8e85d0d1654f1f299f0a67f4cf9fe8.jpg" alt="Thanh xốp chắn khe cửa đa năng thông minh">
+                                    </a>
+                                </div>
+                                <div class="cart-products__content" style="display: block; width: calc(100% - 60px)">
+                                    <div class="cart-products__content--inner"  style="display: flex; justify-content: space-between;">
+                                        <div class="cart-products__desc">
+                                            <a class="cart-products__name" href="/product-p58448882.html?spid=59300677">Ao thun</a>
+                                            <p class="cart-products__badge"></p><p class="cart-products__actions">
+                                                <span >Xóa</span>
+                                            </p>
+                                        </div>
+                                        <div class="cart-products__details" style="display: flex">
+                                            <div class="cart-products__pricess" >
+                                                <p class="cart-products__real-prices" style="">29.500đ</p>
+                                                <p class="cart-products__discount-prices">
+                                                    <del>130.000đ</del>
+                                                    <span class="cart-products__percent-prices">-77%</span>
+                                                </p>
+                                            </div>
+                                            <div class="cart-products__qty"><div class="CartQty__StyledCartQty-o1bx97-0 iaIXXn">
+                                                    <span data-view-id="cart_main_quantity.decrease" data-view-index="fbc9d373-9c65-11eb-b962-ea5c4bde5afa" class="qty-decrease qty-disable">-</span>
+                                                    <input type="tel" class="qty-input" value="1">
+                                                    <span data-view-id="cart_main_quantity.increase" data-view-index="fbc9d373-9c65-11eb-b962-ea5c4bde5afa" class="qty-increase ">+</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tinh_tien" style="width:30%; background-color: buttonface; margin-right: 2%;height: 600px; padding: 3%">
+                <div class="cart-total-prices">
+                    <div class="cart-total-prices__inner">
+                        <div class="styles__StyledShippingAddress-sc-1sjj51k-0 hCYeOT">
+                            <p class="heading">
+                                <span class="text">Địa chỉ nhận hàng</span>
+                                <a data-view-id="cart_shipping_location.change" class="link" href="/checkout/shipping">Thay đổi</a>
+                            </p>
+                            <p class="title">
+                                <b class="name">Quốc Bảo Lê Hồ</b>
+                                <b class="phone">0917982707</b>
+                            </p>
+                            <p class="address">Tạp hóa Quỳnh Anh 84 A Phước Thành, P7, Đà Lạt,, Phường 7, Thành phố Đà Lạt, Lâm Đồng</p>
+                        </div>
+                        <div class="styles__StyledCartCoupon-sc-166rx9n-0 fmbmEN">
+                            <div class="title-usage">
+                                <p class="coupon-title">Tiki khuyến mãi</p>
+                                <p class="max-usage">Có thể chọn 2
+                                    <img class="max-usage__info" src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/icons-info-gray.svg" alt="info">
+                                </p>
+                            </div>
+                            <div class="eligible_coupon_list">
+
+                            </div>
+                            <div data-view-id="cart_platform.coupon_view.all" class="show-more">
+                                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/coupon_icon.svg">
+                                <span>Chọn hoặc nhập Khuyến mãi </span></div></div><div class="CartPrices__StyledCartPrices-yhdjkc-0 ENgjL">
+                            <div class="prices"><ul class="prices__items"><li class="prices__item"><span class="prices__text">Tạm tính</span>
+                                        <span class="prices__value">29.500đ</span>
+                                    </li>
+                                </ul>
+                                <p class="prices__total">
+                                    <span class="prices__text">Thành tiền</span>
+                                    <span class="prices__value prices__value--final">29.500đ
+                                        <i>(Đã bao gồm VAT nếu có)</i>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <button type="button" class="cart__submit">Tiến hành đặt hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
         <jsp:include page="footerShop.jsp"></jsp:include>
     </body>
 </html>
