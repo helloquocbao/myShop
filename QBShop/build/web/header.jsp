@@ -42,25 +42,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.jsp">Liên hệ</a>
                         </li>
-                        <c:if  test="${sessionScope.acc  != null}">
+                       <c:if  test="${sessionScope.acc.isAdmin  == 1}">
                         <li class="nav-item">
-                        <a class="nav-link" href="account.jsp">${sessionScope.acc.fullName}</a>
+                        <a class="nav-link" href="manager">Quản lý</a>
                         </li>
                         </c:if>
                     </ul>
                 </div>
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
+                <div class="navbar align-self-center d-flex">                
                     <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
@@ -76,7 +65,11 @@
                         <a class="nav-icon position-relative text-decoration-none" href="logout">               
                             <i class="fas fa-sign-out-alt text-dark mr-3"></i>
                         </a>
-                        </c:if>
+                        <a class="nav-icon position-relative text-decoration-none" href="account">
+                            <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">${sessionScope.acc.fullName}</span>
+                        </a>
+                    </c:if>
                            
                 </div>
             </div>

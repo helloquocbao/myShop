@@ -142,10 +142,11 @@ public class ProductDAO {
         }
         return list;
     }
- public Product  getProductByID(Long product_id)
+
+    public Product getProductByID(Long product_id)
             throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM product where product_id = " + "'" + product_id +"'";
+        String sql = "SELECT * FROM product where product_id = " + "'" + product_id + "'";
 
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -156,16 +157,52 @@ public class ProductDAO {
             product.setProductImage(rs.getString("product_image"));
             product.setProductPrice(rs.getDouble("product_price"));
             product.setProductDescription(rs.getString("product_description"));
-            
+
             return product;
         }
         return null;
     }
 
+     // get danh sach theo ten
+    public List<Product> getListProductByName(String txtSearch)
+            throws SQLException {
+        Connection connection = DBConnect.getConnecttion();
+      
+        String sql= "SELECT * FROM product WHERE product_name LIKE '%"+txtSearch+"%'";
+        PreparedStatement ps = connection.prepareCall(sql);
+    
+        ResultSet rs = ps.executeQuery();
+        List<Product> list = new ArrayList<>();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getLong("product_id"));
+            product.setProductName(rs.getString("product_name"));
+            product.setProductImage(rs.getString("product_image"));
+            product.setProductPrice(rs.getDouble("product_price"));
+            product.setProductDescription(rs.getString("product_description"));
+            list.add(product);
+        }
+        return list;
+    }
+    
+    public void deleteProduct(String pid) throws SQLException{
+        String sql = "delete from product where `product`.`product_id` =" +pid;  
+        Connection connection = DBConnect.getConnecttion();
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.executeUpdate();
+    }
+    
+    public void insertProduct(String cid, String gid, String pname, String pimage, String pprice, String pdescription) throws SQLException{
+        String sql = " INSERT INTO `product` (`product_id`, `category_id`, `gender_id`, `product_name`, `product_image`, `product_price`, `product_description`) "
+                + "VALUES (NULL, '" + cid + "', '" + gid + "',' " + pname + "',' " + pimage + "',' " + pprice + "',' " + pdescription + "');";
+        Connection connection = DBConnect.getConnecttion();
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.executeUpdate();
+    }  
+   
+    
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO();    
-        Product c = dao.getProductByID(Long.parseLong("3"));
-        System.out.println(c.getProductID()+" - "+c.getProductName()+" - "+c.getProductPrice());
         
        }
     

@@ -1,4 +1,4 @@
-<%-- 
+ <%-- 
     Document   : shop
     Created on : Mar 8, 2021, 12:30:50 AM
     Author     : QuocBao
@@ -44,39 +44,36 @@
 
 
         <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-        <div class="container text-light">
-            <div class="w-100 d-flex justify-content-between">
-                <div>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">lehoquocbao9@gmail.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">0917000000</a>
-                </div>
-                <div>
-                    <a class="text-light" href="https://fb.com" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+            <div class="container text-light">
+                <div class="w-100 d-flex justify-content-between">
+                    <div>
+                        <i class="fa fa-envelope mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        <i class="fa fa-phone mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    </div>
+                    <div>
+                        <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
         <jsp:include page="header.jsp"></jsp:include>
-            <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="w-100 pt-1 mb-5 text-right">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            
+                <div class="modal-dialog modal-lg" role="document" >
+                      <form action="search" method="post" class="modal-content modal-body border-0 p-0" style="width: 300px;height: 10px; float: right ">
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                            <input type="text" class="form-control" id="inputModalSearch" name="txt" placeholder="Search ...">
                             <button type="submit" class="input-group-text bg-success text-light">
                                 <i class="fa fa-fw fa-search text-white"></i>
                             </button>
                         </div>
                     </form>
                 </div>
-            </div>
+            
 
 
 
@@ -150,7 +147,6 @@
                     
                     
                     <div class="row">
-                   
                         <c:forEach items="${listP}" var="o">
                             <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">

@@ -13,11 +13,20 @@ public class Users {
     private String fullName;
     private String userEmail;
     private String userPass;
-
-    public Users( String fullName, String userEmail, String userPass) {
+    private int isAdmin;
+    public Users( String fullName, String userEmail, String userPass, int isAdmin) {
         this.fullName = fullName;
         this.userEmail = userEmail;
         this.userPass = userPass;
+        this.isAdmin = isAdmin;
+    }
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
     public Users() {

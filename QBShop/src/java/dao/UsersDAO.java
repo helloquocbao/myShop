@@ -47,6 +47,7 @@ public class UsersDAO {
                 userr.setFullName(rs.getString("user_fullname"));
                 userr.setUserEmail(rs.getString("user_email"));
                 userr.setUserPass(rs.getString("user_pass"));
+                userr.setIsAdmin(rs.getInt("isAdmin"));
                 return userr;
             }
         } catch (Exception e) {
@@ -77,7 +78,7 @@ public class UsersDAO {
     public void signup(String fullName, String email, String pass){
         try {
             Connection connection = DBConnect.getConnecttion();
-            String sql = "INSERT INTO `users` VALUES ('"+fullName+"','"+email+"', '"+pass+"')";
+            String sql = "INSERT INTO `users` VALUES ('"+fullName+"','"+email+"', '"+pass+"', b'0')";
             PreparedStatement ps = connection.prepareCall(sql);
             ps.executeUpdate();
         } catch (Exception e) {
