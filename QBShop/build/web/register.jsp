@@ -8,7 +8,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <m<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register</title>
          <title>Zay Shop eCommerce HTML CSS Template</title>
     <meta charset="utf-8">

@@ -50,7 +50,7 @@ public class UsersDAO {
                 userr.setIsAdmin(rs.getInt("isAdmin"));
                 return userr;
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }
         return null;
 

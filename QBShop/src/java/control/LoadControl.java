@@ -5,10 +5,13 @@
  */
 package control;
 
+import dao.CategoryDAO;
+import dao.GenderDAO;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -16,13 +19,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Category;
+import model.Gender;
+import model.Product;
 
 /**
  *
  * @author QuocBao
  */
-@WebServlet(name = "AddControl", urlPatterns = {"/add"})
-public class AddControl extends HttpServlet {
+@WebServlet(name = "LoadControl", urlPatterns = {"/loadProduct"})
+public class LoadControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,19 +43,21 @@ public class AddControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String name = request.getParameter("name");
-        String image = request.getParameter("image");
-        String price = request.getParameter("price");
-        String Description = request.getParameter("description");
-        String title = request.getParameter("title");
-        String category = request.getParameter("category");
-        String gender = request.getParameter("gender");
+        String proID = request.getParameter("pid");
         
-        ProductDAO dao = new ProductDAO();
-        dao.insertProduct(category, gender, name, image, price, Description);
-        response.sendRedirect("manager");
+        ProductDAO productDAO = new ProductDAO();
+        CategoryDAO categoryDAO = new CategoryDAO();
+        GenderDAO genderDAO = new GenderDAO();
         
+        Product product = productDAO.getProductByID(Integer.parseInt(proID));
+        List<Category> listC = categoryDAO.getListCategory();
+        List<Gender> listG = genderDAO.getListGender();
+        
+        request.setAttribute("p" ,product);
+        request.setAttribute("listC", listC);
+        request.setAttribute("listG", listG);
+       
+        request.getRequestDispatcher("edit.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,7 +75,7 @@ public class AddControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(AddControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoadControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -85,7 +93,7 @@ public class AddControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(AddControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoadControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

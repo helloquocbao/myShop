@@ -25,36 +25,35 @@
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                            <a class="text-decoration-none" href="tel:090000000">090000000</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            <a class="text-decoration-none" href="mailto:info@company.com">lehoquocbao9@gmail.com</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Các sản phẩm</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                        <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
-                        <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+                        <li><a class="text-decoration-none" href="category?category=1">Áo</a></li>
+                        <li><a class="text-decoration-none" href="category?category=4">Quần</a></li>
+                        <li><a class="text-decoration-none" href="category?category=11">Ví</a></li>
+                        <li><a class="text-decoration-none" href="category?category=2">Túi xách</a></li>
+                        <li><a class="text-decoration-none" href="category?category=3">Kính</a></li>
+                        <li><a class="text-decoration-none" href="category?category=11">Ví</a></li>
+                        <li><a class="text-decoration-none" href="category?category=12">Đồng hồ</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Các trang</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Home</a></li>
-                        <li><a class="text-decoration-none" href="#">About Us</a></li>
-                        <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
-                        <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                        <li><a class="text-decoration-none" href="#">Contact</a></li>
+                        <li><a class="text-decoration-none" href="Index.jsp">Trang chủ</a></li>
+                        <li><a class="text-decoration-none" href="about.jsp">Thông tin</a></li>
+                        <li><a class="text-decoration-none" href="shop">Shop</a></li>
+                        <li><a class="text-decoration-none" href="contact.jsp">Liên hệ</a></li>
                     </ul>
                 </div>
 

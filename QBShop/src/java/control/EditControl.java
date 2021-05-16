@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author QuocBao
  */
-@WebServlet(name = "AddControl", urlPatterns = {"/add"})
-public class AddControl extends HttpServlet {
+@WebServlet(name = "EditControl", urlPatterns = {"/edit"})
+public class EditControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,24 +32,23 @@ public class AddControl extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String name = request.getParameter("name");
+        String productId = request.getParameter("id");
         String image = request.getParameter("image");
         String price = request.getParameter("price");
         String Description = request.getParameter("description");
-        String title = request.getParameter("title");
+        
         String category = request.getParameter("category");
         String gender = request.getParameter("gender");
         
         ProductDAO dao = new ProductDAO();
-        dao.insertProduct(category, gender, name, image, price, Description);
-        response.sendRedirect("manager");
-        
+      dao.editProduct(category, gender, name, image, price, Description, productId);
+      response.sendRedirect("manager");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,7 +66,7 @@ public class AddControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(AddControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -85,7 +84,7 @@ public class AddControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(AddControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

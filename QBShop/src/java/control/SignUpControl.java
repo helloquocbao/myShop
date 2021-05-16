@@ -37,6 +37,7 @@ public class SignUpControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String fullName = request.getParameter("fullname");
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");  

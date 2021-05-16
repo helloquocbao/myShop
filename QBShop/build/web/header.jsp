@@ -7,6 +7,18 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@page import= "model.Cart"%>
+<%@page import= "model.Item"%>
+<%@page import= "java.util.Map"%>
+
+<%
+    Cart cart = (Cart) session.getAttribute("cart");
+    if(cart == null){
+        cart = new Cart();
+        session.setAttribute("cart", cart);
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,9 +62,9 @@
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">                
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="Cart.jsp">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                      
                     </a>
                     <c:if test="${sessionScope.acc  == null}">
                     <a class="nav-icon position-relative text-decoration-none" href="login.jsp">
@@ -62,7 +74,7 @@
                     </c:if>
                     
                     <c:if  test="${sessionScope.acc  != null}">                        
-                        <a class="nav-icon position-relative text-decoration-none" href="logout">               
+                        <a class="nav-icon position-relative text-decoration-none" href="logout" >               
                             <i class="fas fa-sign-out-alt text-dark mr-3"></i>
                         </a>
                         <a class="nav-icon position-relative text-decoration-none" href="account">

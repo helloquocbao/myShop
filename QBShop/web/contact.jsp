@@ -134,7 +134,7 @@
     </div>
     <!-- End Contact -->
         
-        <jsp:include page="footerContact.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
         
         <!-- Start Script -->
         <script src="js/jquery-1.11.0.min.js"></script>

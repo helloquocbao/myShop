@@ -42,7 +42,7 @@ public class ShopSingleControl extends HttpServlet {
         
         ProductDAO productDAO = new ProductDAO();
         
-        Product product = productDAO.getProductByID(Long.parseLong(proID));
+        Product product = productDAO.getProductByID(Integer.parseInt(proID));
         
         request.setAttribute("p" ,product);
         request.getRequestDispatcher("shop-single.jsp").forward(request, response);

@@ -64,7 +64,62 @@
                 </div>
             </div>
         </nav>
-        <jsp:include page="header.jsp"></jsp:include>
+       
+       
+       
+       <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="Index.jsp">
+                Zay
+           </a>
+            <div class="" id="templatemo_main_nav">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" style="margin-left: 1px ">
+                            <a class="nav-link" href="Index.jsp">Trang chủ</a>
+                        </li>
+                      
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop">Shop</a>
+
+                        </li>
+                       
+                       <c:if  test="${sessionScope.acc.isAdmin  == 1}">
+                        <li class="nav-item">
+                        <a class="nav-link" href="manager">Quản lý</a>
+                        </li>
+                        </c:if>
+                                      
+                         <c:if test="${sessionScope.acc  == null}">
+
+                        <li class="nav-item">                     
+                            <a class="nav-icon position-relative text-decoration-none" href="login.jsp">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">abc</span>
+                    </a>
+                    </li >
+                     </c:if>
+                    <c:if  test="${sessionScope.acc  != null}">  
+                     <li class="nav-item" style="display:flex">
+                      
+                        <a class="nav-icon position-relative text-decoration-none" href="account">
+                            <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">${sessionScope.acc.fullName}</span>
+                        </a>
+                        
+                          <a class="nav-icon position-relative text-decoration-none" href="logout">               
+                            <i class="fas fa-sign-out-alt text-dark mr-3"></i>
+                        </a>
+                        </li>
+                         </c:if>                       
+                    </ul>
+                </div>
+            </div>
+
+    
+    </nav>
+       
+       
         <div class="container">
             <div class="table-wrapper">
                 <div class="table-title">
@@ -113,7 +168,7 @@
                                 </td>
                                 <td>${o.productPrice} VNĐ</td>
                                 <td>
-                                    <a href="#editEmployeeModal"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="loadProduct?pid=${o.productID}"  class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                     <a href="delete?pid=${o.productID}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
@@ -170,19 +225,20 @@
                                 <label>Category</label>
                                 <select name="category" class="form-select" aria-label="Default select example">
                                     <c:forEach items="${listC}" var="o">
-                                        <option value="1">${o.categoryName}</option>
+                                        <option value="${o.categoryID}">${o.categoryName}</option>
                                     </c:forEach>
                                 </select>
                                  <label>Giới tính</label>
                                  <select name="gender" class="form-select" aria-label="Default select example">
                                  <c:forEach items="${listG}" var="o">
-                                        <option value="1">${o.genderName}</option>
+                                        <option value="${o.genderID}">${o.genderName}</option>
                                     </c:forEach>
                                 </select>
                             </div>
 
                         </div>
                         <div class="modal-footer">
+                            
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                             <input type="submit" class="btn btn-success" value="Add">
                         </div>
@@ -190,41 +246,7 @@
                 </div>
             </div>
         </div>
-        <!-- Edit Modal HTML -->
-        <div id="editEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form>
-                        <div class="modal-header">						
-                            <h4 class="modal-title">Edit Employee</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">					
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Address</label>
-                                <textarea class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Phone</label>
-                                <input type="text" class="form-control" required>
-                            </div>					
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-info" value="Save">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+     
         <!-- Delete Modal HTML -->
         <div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">

@@ -33,7 +33,7 @@ public class ProductDAO {
         List<Product> list = new ArrayList<>();
         while (rs.next()) {
             Product product = new Product();
-            product.setProductID(rs.getLong("product_id"));
+            product.setProductID(rs.getInt("product_id"));
             product.setProductName(rs.getString("product_name"));
             product.setProductImage(rs.getString("product_image"));
             product.setProductPrice(rs.getDouble("product_price"));
@@ -54,7 +54,7 @@ public class ProductDAO {
         List<Product> list = new ArrayList<>();
         while (rs.next()) {
             Product product = new Product();
-            product.setProductID(rs.getLong("product_id"));
+            product.setProductID(rs.getInt("product_id"));
             product.setProductName(rs.getString("product_name"));
             product.setProductImage(rs.getString("product_image"));
             product.setProductPrice(rs.getDouble("product_price"));
@@ -71,7 +71,7 @@ public class ProductDAO {
         ResultSet rs = ps.executeQuery();
         Product product = new Product();
         while (rs.next()) {
-            product.setProductID(rs.getLong("product_id"));
+            product.setProductID(rs.getInt("product_id"));
             product.setProductName(rs.getString("product_name"));
             product.setProductImage(rs.getString("product_image"));
             product.setProductPrice(rs.getDouble("product_price"));
@@ -91,7 +91,7 @@ public class ProductDAO {
         List<Product> list = new ArrayList<>();
         while (rs.next()) {
             Product product = new Product();
-            product.setProductID(rs.getLong("product_id"));
+            product.setProductID(rs.getInt("product_id"));
             product.setProductName(rs.getString("product_name"));
             product.setProductImage(rs.getString("product_image"));
             product.setProductPrice(rs.getDouble("product_price"));
@@ -112,7 +112,7 @@ public class ProductDAO {
         List<Product> list = new ArrayList<>();
         while (rs.next()) {
             Product product = new Product();
-            product.setProductID(rs.getLong("product_id"));
+            product.setProductID(rs.getInt("product_id"));
             product.setProductName(rs.getString("product_name"));
             product.setProductImage(rs.getString("product_image"));
             product.setProductPrice(rs.getDouble("product_price"));
@@ -143,7 +143,7 @@ public class ProductDAO {
         return list;
     }
 
-    public Product getProductByID(Long product_id)
+    public Product getProductByID(long product_id)
             throws SQLException {
         Connection connection = DBConnect.getConnecttion();
         String sql = "SELECT * FROM product where product_id = " + "'" + product_id + "'";
@@ -175,7 +175,7 @@ public class ProductDAO {
         List<Product> list = new ArrayList<>();
         while (rs.next()) {
             Product product = new Product();
-            product.setProductID(rs.getLong("product_id"));
+            product.setProductID(rs.getInt("product_id"));
             product.setProductName(rs.getString("product_name"));
             product.setProductImage(rs.getString("product_image"));
             product.setProductPrice(rs.getDouble("product_price"));
@@ -200,11 +200,30 @@ public class ProductDAO {
         ps.executeUpdate();
     }  
    
-    
+     public void editProduct(String cid, String gid, String pname, String pimage, String pprice, String pdescription, String id) throws SQLException{
+         
+        String sql = "UPDATE `product` SET `category_id` = '"+cid+"',"
+                                       + " `gender_id` = '"+gid+"',"
+                                       + " `product_name` = '"+pname+"',"
+                                       + " `product_image` = '"+pimage+"',"
+                                       + " `product_price` = '"+pprice+"',"
+                                       + " `product_description` = '"+pdescription+"'"
+                      + " WHERE `product`.`product_id` = "+id;
+        Connection connection = DBConnect.getConnecttion();
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.executeUpdate();
+    }  
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO();    
         
        }
+
+    public Product getProduct(String s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
+    
     
     
 }

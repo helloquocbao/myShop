@@ -197,7 +197,7 @@
         </div>
     </section>
     <!--End Brands-->
-        <jsp:include page="footerAbout.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
         <!-- Start Script -->
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/jquery-migrate-1.2.1.min.js"></script>

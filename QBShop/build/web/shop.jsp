@@ -8,6 +8,15 @@
 <%@page import="dao.GenderDAO"%>            
 <%@page import="model.Category"%>
 <%@page import="dao.CategoryDAO"%> 
+<%@page import= "model.Cart"%>
+
+<%
+    Cart cart = (Cart) session.getAttribute("cart");
+    if(cart == null){
+        cart = new Cart();
+        session.setAttribute("cart", cart);
+    }
+%>
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -63,7 +72,7 @@
         </nav>
         <jsp:include page="header.jsp"></jsp:include>
             
-                <div class="modal-dialog modal-lg" role="document" >
+        <div class="align-content-end" style="padding-right: 115px; padding-top: 20px" role="document" >
                       <form action="search" method="post" class="modal-content modal-body border-0 p-0" style="width: 300px;height: 10px; float: right ">
                         <div class="input-group mb-2">
                             <input type="text" class="form-control" id="inputModalSearch" name="txt" placeholder="Search ...">
@@ -154,9 +163,8 @@
                                 <img class="card-img rounded-0 img-fluid" src="${o.productImage}">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single?product=${o.productID}"><i class="far fa-heart"></i></a></li>
                                         <li><a class="btn btn-success text-white mt-2" href="shop-single?product=${o.productID}"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single?product=${o.productID}"><i class="fas fa-cart-plus"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="cart?command=plus&productID=${o.productID}"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -218,11 +226,8 @@
             <div class="container my-4">
                 <div class="row text-center py-3">
                     <div class="col-lg-6 m-auto">
-                        <h1 class="h1">Our Brands</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            Lorem ipsum dolor sit amet.
-                        </p>
+                        <h1 class="h1">Các thương hiệu</h1>
+                    
                     </div>
                     <div class="col-lg-9 m-auto tempaltemo-carousel">
                         <div class="row d-flex flex-row">
@@ -317,7 +322,7 @@
         </section>
         <!--End Brands-->
 
-        <jsp:include page="footerShop.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/jquery-migrate-1.2.1.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>

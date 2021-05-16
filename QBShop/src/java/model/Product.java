@@ -12,23 +12,23 @@ package model;
 public class Product {
     private long productID;
     private long categoryID;
-    private long styleID;
     private long genderID;
     private String productName;
     private String productImage;
     private double productPrice;
     private String productDescription;
 
+
     public Product() {
     }
 
-    public Product(long productID, long categoryID, long styleID, long genderID,
+    public Product(long productID, long categoryID, long genderID,
             String productName, String productImage, double productPrice,
                 String productDescription) {
         
         this.productID = productID;
         this.categoryID = categoryID;
-        this.styleID = styleID;
+      
         this.genderID = genderID;
         this.productName = productName;
         this.productImage = productImage;
@@ -51,14 +51,6 @@ public class Product {
 
     public void setCategoryID(long categoryID) {
         this.categoryID = categoryID;
-    }
-
-    public long getStyleID() {
-        return styleID;
-    }
-
-    public void setStyleID(long styleID) {
-        this.styleID = styleID;
     }
 
     public long getGenderID() {
@@ -99,6 +91,14 @@ public class Product {
 
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
+    }
+
+    public void getAmout(int count) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public double getAmount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
