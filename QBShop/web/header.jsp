@@ -64,12 +64,13 @@
                 <div class="navbar align-self-center d-flex">                
                     <a class="nav-icon position-relative text-decoration-none" href="Cart.jsp">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                      
+                       <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"><%=cart.countItem()%></span>
+
                     </a>
                     <c:if test="${sessionScope.acc  == null}">
                     <a class="nav-icon position-relative text-decoration-none" href="login.jsp">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">abc</span>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"> </span>
                     </a>
                     </c:if>
                     

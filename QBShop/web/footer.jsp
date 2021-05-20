@@ -95,7 +95,7 @@
                     <div class="col-12">
                         <p class="text-left text-light">
                             Copyright &copy; 2021 QB Group 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">Quốc Bảo Group</a>
+                            | Designed by <a rel="sponsored" href="https://quocbaogroup.com" target="_blank">Quốc Bảo Group</a>
                         </p>
                     </div>
                 </div>

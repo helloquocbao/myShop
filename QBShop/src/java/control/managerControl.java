@@ -52,7 +52,7 @@ public class managerControl extends HttpServlet {
         
          request.setAttribute("listP", list);
          request.setAttribute("listC", listC);
-          request.setAttribute("listG", listG); 
+         request.setAttribute("listG", listG); 
          request.getRequestDispatcher("ManagerProduct.jsp").forward(request, response);
     }
 

@@ -45,52 +45,32 @@
 
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="edit" method="post">
+                <form action="editAcc" method="post">
 
                     <div class="modal-header">						
-                        <h4 class="modal-title">Chỉnh sửa sản phẩm</h4>                       
+                        <h4 class="modal-title">Chỉnh sửa tài khoản</h4>                       
                     </div>
 
                     <div class="modal-body">	
                         <div class="form-group">
-                            <label>ID sản phẩm</label>
-                            <input value="${p.productID}" name="id" type="text" class="form-control" readonly required>
+                            <label>Email</label>
+                            <input value="${u.userEmail}" name="id" type="text" class="form-control" readonly required>
                         </div>
                         <div class="form-group">
-                            <label>Name</label>
-                            <input value="${p.productName}" name="name" type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Image</label>
-                            <input value="${p.productImage}" name="image" type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Price</label>
-                            <input value="${p.productPrice}" name="price" type="text" class="form-control" required>
+                            <label>Họ và tên</label>
+                            <input value="${u.fullName}" name="name" type="text" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label>Description</label>
-                            <textarea name="description" class="form-control" required> ${p.productDescription}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Category</label>
-                            <select name="category" class="form-select" aria-label="Default select example">
-                                <c:forEach items="${listC}" var="o">
-                                    <option value="${o.categoryID}">${o.categoryName}</option>
+                             <label>Chức vụ</label>
+                             <select name="category" class="form-select" aria-label="Default select example">
+                                <c:forEach items="${listS}" var="o">
+                                    <option value="${o.isAdmin}">${o.name}</option>
                                     
                                 </c:forEach>
-                            </select>
-                            <label>Giới tính</label>
-                            <select name="gender" class="form-select" aria-label="Default select example">
-                                <c:forEach items="${listG}" var="o">
-                                    <option value="${o.genderID}">${o.genderName} </option>
-                                </c:forEach>
-
-                            </select>   
+                         </select>
                             <div class="modal-footer">
-                                    <a href="manager"> <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy"></a> 
-                                   
+                                <a href="managerAccount"> <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy"></a> 
                                     <input type="submit" class="btn btn-success" value="Sửa">
                                  </div>    
                                 </div>

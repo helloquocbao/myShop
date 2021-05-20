@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Product;
 import model.Users;
 
 
@@ -31,6 +32,7 @@ public class UsersDAO {
             user.setFullName(rs.getString("user_fullname"));
             user.setUserEmail(rs.getString("user_email"));
             user.setUserPass(rs.getString("user_pass"));
+            
             list.add(user);
         }
         return list;
@@ -75,6 +77,32 @@ public class UsersDAO {
 
     }
     
+    public Users getUserByID(String email)
+            throws SQLException {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT * FROM users WHERE users.user_email = '"+email+"'";
+
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Users users = new Users();
+            users.setFullName(rs.getString("user_fullname"));
+            users.setUserEmail(rs.getString("user_email"));
+            users.setUserPass(rs.getString("user_pass"));
+            users.setIsAdmin(rs.getInt("isAdmin"));
+          
+            return users;
+        }
+        return null;
+    }
+    
+    public void deleteUser(String email) throws SQLException{
+        String sql = "DELETE FROM `users` WHERE `users`.`user_email` = '"+ email+ "'";
+        
+        Connection connection = DBConnect.getConnecttion();
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.executeUpdate();
+    }
     public void signup(String fullName, String email, String pass){
         try {
             Connection connection = DBConnect.getConnecttion();
@@ -92,8 +120,9 @@ public class UsersDAO {
 //        for (Users ds : dao.getListAccount()) {
 //            System.out.println(ds.getUserID()+ " - " + ds.getFullName()+ " - " + ds.getUserEmail() + " - " + ds.getUserPass());
 //        }
-        Users user = dao.login("sontung@gmail.com", "1a2b");
-        System.out.println(user.getFullName()+ " - " + user.getUserEmail() + " - " + user.getUserPass());
+        Users user =   dao.getUserByID("bao@gmail.com");
+      
+            System.out.println(user.getFullName()+ " - "+ " - " + user.getUserEmail() + " - " + user.getUserPass() + " -" +user.getIsAdmin() );
        
     }
 }

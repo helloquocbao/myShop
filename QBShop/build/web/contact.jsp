@@ -69,12 +69,16 @@
 
     <!-- Start Content Page -->
     <div class="container-fluid bg-light py-5">
-        <div class="col-md-6 m-auto text-center">
-            <h1 class="h1">Contact Us</h1>
-            <p>
-                Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet.
-            </p>
+        <div class="col-md-6 m-auto">
+            <h1 class="h1">Hệ thống cửa hàng thời trang:</h1>
+      
+            <ul style="padding-top: 20px">
+                <li><h6> 475A Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM, Hotline: 0917000000 </h6>
+                   </li>
+                
+                   <li><h6> Lô E1, Phân khu đào tạo E1, Khu Công Nghệ cao TP.HCM, Phường Hiệp Phú, Quận 9, TP.HCM., Hotline: 0917000000 </h6></li> 
+            
+            </ul>
         </div>
     </div>
 
@@ -86,7 +90,7 @@
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             maxZoom: 18,
-            attribution: 'Zay Telmplte | Template Design by <a href="https://templatemo.com/">Templatemo</a> | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            attribution: 'Quốc Bảo|Desigin <a href="https://quocbaogroup.com/">Quốc Bảo</a> | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
                 '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             id: 'mapbox/streets-v11',
@@ -94,8 +98,8 @@
             zoomOffset: -1
         }).addTo(mymap);
 
-        L.marker([-23.013104, -43.394365, 13]).addTo(mymap)
-            .bindPopup("<b>Zay</b> eCommerce Template<br />Location.").openPopup();
+        L.marker([10.855692741444432, 106.7851323012075]).addTo(mymap)
+            .bindPopup("<b>Zay</b> shop<br />Location.").openPopup();
 
         mymap.scrollWheelZoom.disable();
         mymap.touchZoom.disable();

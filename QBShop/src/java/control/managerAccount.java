@@ -1,9 +1,14 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package control;
 
-import dao.GenderDAO;
 import dao.CategoryDAO;
+import dao.GenderDAO;
 import dao.ProductDAO;
+import dao.UsersDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -16,15 +21,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Category;
-import model.Product;
 import model.Gender;
+import model.Product;
+import model.Users;
 
 /**
  *
- * @author Admin
+ * @author QuocBao
  */
-@WebServlet(name = "SearchControl", urlPatterns = {"/search"})
-public class SearchControl extends HttpServlet {
+@WebServlet(name = "managerAccount", urlPatterns = {"/managerAccount"})
+public class managerAccount extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,22 +44,17 @@ public class SearchControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-       String txtSearch = request.getParameter("txt");
-       ProductDAO dao= new ProductDAO();
-       CategoryDAO daoc = new CategoryDAO();
-       GenderDAO daog = new GenderDAO();
-       List<Product> list = dao.getListProductByName(txtSearch);
-       List<Category> listc = daoc.getListCategory();
-       List<Gender> listg = daog.getListGender();
+       UsersDAO usersDAO = new UsersDAO();
        
-       request.setAttribute("listP", list);
-       request.setAttribute("listC", listc);
-       request.setAttribute("listG", listg);
-       request.getRequestDispatcher("shop.jsp").forward(request, response);
-       
-     
-    }   
+        
+        List<Users> list = usersDAO.getListAccount();
+        
+        
+         request.setAttribute("listP", list);
+        
+         request.getRequestDispatcher("ManagerAcount.jsp").forward(request, response);
+    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -70,7 +71,7 @@ public class SearchControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(SearchControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(managerAccount.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -88,7 +89,7 @@ public class SearchControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(SearchControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(managerAccount.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -1,13 +1,15 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package control;
 
-import dao.GenderDAO;
-import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.UsersDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -15,16 +17,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Category;
-import model.Product;
-import model.Gender;
 
 /**
  *
- * @author Admin
+ * @author QuocBao
  */
-@WebServlet(name = "SearchControl", urlPatterns = {"/search"})
-public class SearchControl extends HttpServlet {
+@WebServlet(name = "DeleteAcc", urlPatterns = {"/deleteAcc"})
+public class DeleteAcc extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,22 +37,13 @@ public class SearchControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-       String txtSearch = request.getParameter("txt");
-       ProductDAO dao= new ProductDAO();
-       CategoryDAO daoc = new CategoryDAO();
-       GenderDAO daog = new GenderDAO();
-       List<Product> list = dao.getListProductByName(txtSearch);
-       List<Category> listc = daoc.getListCategory();
-       List<Gender> listg = daog.getListGender();
-       
-       request.setAttribute("listP", list);
-       request.setAttribute("listC", listc);
-       request.setAttribute("listG", listg);
-       request.getRequestDispatcher("shop.jsp").forward(request, response);
-       
-     
-    }   
+        
+        
+        String uid = request.getParameter("uid");
+       UsersDAO dao = new UsersDAO();
+            dao.deleteUser(uid);
+        response.sendRedirect("managerAccount");
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -70,7 +60,7 @@ public class SearchControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(SearchControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteAcc.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -88,7 +78,7 @@ public class SearchControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(SearchControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteAcc.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

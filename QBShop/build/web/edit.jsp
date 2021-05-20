@@ -78,6 +78,7 @@
                             <select name="category" class="form-select" aria-label="Default select example">
                                 <c:forEach items="${listC}" var="o">
                                     <option value="${o.categoryID}">${o.categoryName}</option>
+                                    
                                 </c:forEach>
                             </select>
                             <label>Giới tính</label>

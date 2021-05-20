@@ -59,7 +59,7 @@ public class CheckOutControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8");
         String address = request.getParameter("address");
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
@@ -85,7 +85,7 @@ public class CheckOutControl extends HttpServlet {
             session.setAttribute("cart", cart);
         } catch (Exception e) {
         }
-        response.sendRedirect("/QBShop/Index.jsp");
+        response.sendRedirect("/QBShop/shop");
     }
 }
 

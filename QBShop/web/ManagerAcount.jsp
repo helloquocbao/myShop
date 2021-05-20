@@ -132,7 +132,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                      <h2>Quản lý<a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="manager"> Sản phẩm</a><a class=" text-white mt-2" href="managerAccount"> Tài khoản</a></h2>
+                           <h2>Quản lý<a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="manager"> Sản phẩm</a><a class=" text-white mt-2" href="managerAccount"> Tài khoản</a></h2>
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm</span></a>
@@ -149,11 +149,9 @@
                                     <label for="selectAll"></label>
                                 </span>
                             </th>
-                            <th>ID</th>
-                            <th>Tên</th>
-                            <th>Ảnh</th>
-                            <th>Mô tả</th>
-                            <th>Giá</th>     
+                            <th>email</th>
+                            <th>họ và Tên</th>
+                            <th>Chức vụ</th>                            
                             <th>Thực thi</th>
                         </tr>
                     </thead>
@@ -166,18 +164,18 @@
                                         <label for="checkbox1"></label>
                                     </span>
                                 </td>
-                                <td>${o.productID}</td>
-                                <td>${o.productName}</td>
-                                <td>
-                                    <img style="height:200px" src="${o.productImage}">
+                                <td>${o.userEmail}</td>
+                                <td>${o.fullName}</td>
+                                <td>${o.isAdmin}</td>
+                               
                                 </td>
-                                <td>${o.productDescription}  
-                                </td>
-                                <td>${o.productPrice} VNĐ</td>
-                                <td>
-                                    <a href="loadProduct?pid=${o.productID}"  class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="delete?pid=${o.productID}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
+                                
+                                  <td>
+                                    <a href="LoadAcc?uid=${o.userEmail}"  class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="deleteAcc?uid=${o.userEmail}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                </td>   
+                              
+                              
                             </tr>
                         </c:forEach>
                     </tbody>

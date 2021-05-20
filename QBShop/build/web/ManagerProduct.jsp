@@ -132,7 +132,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                                <h2>Quản lý <b>Sản phẩm</b></h2>
+                      <h2>Quản lý<a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="manager"> Sản phẩm</a><a class=" text-white mt-2" href="managerAccount"> Tài khoản</a></h2>
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm</span></a>

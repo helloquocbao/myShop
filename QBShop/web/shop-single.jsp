@@ -144,10 +144,16 @@
                                 </div>
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Mua</button>
+                                        <a class="btn btn-success text-white mt-2" href="cart?command=plus&productID=${p.productID}">
+                                          Thêm vào giỏ hàng
+                                        </a>
+                                        
                                     </div>
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Thêm vào giỏ</button>
+                                          <div class="col d-grid" style="height: 60px; width: 50px; text-align: center">
+                                         <a class="btn btn-success text-white mt-2" href="plusorsub?command=plus&productID=${p.productID}">
+                                            Mua
+                                        </a>
+                                      
                                     </div>
                                 </div>
                             </form>

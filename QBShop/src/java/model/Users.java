@@ -14,12 +14,16 @@ public class Users {
     private String userEmail;
     private String userPass;
     private int isAdmin;
-    public Users( String fullName, String userEmail, String userPass, int isAdmin) {
+    
+    public Users( String fullName, String userEmail, String userPass, int isAdmin ,  String statum) {
         this.fullName = fullName;
         this.userEmail = userEmail;
         this.userPass = userPass;
         this.isAdmin = isAdmin;
     }
+
+ 
+
 
     public int getIsAdmin() {
         return isAdmin;

@@ -34,11 +34,11 @@
         <div class="container">
             <div class="row align-items-center py-5">
                 <div class="col-md-8 text-white">
-                    <h1>About Us</h1>
+                    <h1>Về chúng tôi</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Zay shop là cửa hàng thành lập vào năm 2021 thuộc Công ty Cổ phần Quốc Bảo Goup,
+                        là một chuỗi hệ thống bán lẻ tại Việt Nam với lĩnh vực kinh doanh chính là bán lẻ các sản phẩm thời trang.
+                        
                     </p>
                 </div>
                 <div class="col-md-4">
