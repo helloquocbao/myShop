@@ -5,6 +5,8 @@
  */
 package control;
 
+import dao.CategoryDAO;
+import dao.GenderDAO;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,6 +19,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Category;
+import model.Gender;
 import model.Product;
 
 /**
@@ -50,7 +54,13 @@ public class ListProduct extends HttpServlet {
            endPage++;
        }
        List<Product> list =productDAO.pagingProduct(index);
-       
+       CategoryDAO categoryDAO = new CategoryDAO();
+        GenderDAO genderDAO = new GenderDAO();
+        List<Category> listC = categoryDAO.getListCategory();
+        List<Gender> listG = genderDAO.getListGender();
+        
+        request.setAttribute("listC", listC);
+         request.setAttribute("listG", listG); 
        request.setAttribute("listP", list);
        request.setAttribute("count", count);
        request.setAttribute("endP", endPage);

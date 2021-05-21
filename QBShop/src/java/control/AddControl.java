@@ -48,7 +48,7 @@ public class AddControl extends HttpServlet {
         
         ProductDAO dao = new ProductDAO();
         dao.insertProduct(category, gender, name, image, price, Description);
-        response.sendRedirect("manager");
+        response.sendRedirect("listProduct");
         
     }
 

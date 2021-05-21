@@ -12,8 +12,12 @@ package dao;
 import connect.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import model.BillDetail;
+import model.BillInfo;
 
 public class BillDetalDAO {
 
@@ -29,7 +33,31 @@ public class BillDetalDAO {
         ps.executeUpdate();
     }
 
+    public List<BillInfo> getListOrderByIDBill(String idBill)
+            throws SQLException {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT product.product_name, bill_detail.quantity , bill_detail.price FROM bill_detail, bill, product "
+                + "WHERE bill_detail.bill_id =bill.bill_id "
+                + "and product.product_id=bill_detail.product_id "
+                + "and bill.bill_id = '"+idBill+"'";
+
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        List<BillInfo> list = new ArrayList<>();
+        while (rs.next()) {
+            BillInfo billdetail = new BillInfo();
+            billdetail.setProductName(rs.getString("product_name"));       
+           billdetail.setPrice(rs.getDouble("price"));        
+            billdetail.setQuantity(rs.getInt("quantity"));
+            list.add(billdetail);
+        }
+        return list;
+    }
     public static void main(String[] args) throws SQLException {
-        new BillDetalDAO().insertBillDetail(new BillDetail(0, 0, 0, 0, 0));
+        BillDetalDAO dao = new BillDetalDAO();
+        String idBill = "1621617380960";
+          for (BillInfo ds : dao.getListOrderByIDBill(idBill)){
+              System.out.println(ds.getProductName() + ds.getPrice() + ds.getQuantity());
+          }
     }
 }

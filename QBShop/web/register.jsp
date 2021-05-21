@@ -61,7 +61,7 @@
                     </div></ul>
                     <ul><div class="form-group col-md-6 mb-3">
                         <label for="inputemail">email(*)</label>
-                        <input type="text" required="yes" class="form-control mt-1"  name="email" placeholder="email@abc.com">
+                        <input type="email" required="yes" class="form-control mt-1"  name="email" placeholder="email@abc.com">
                     </div></ul>
                     <ul><div class="form-group col-md-6 mb-3">
                         <label for="inputpas">Mật khẩu(*)</label>

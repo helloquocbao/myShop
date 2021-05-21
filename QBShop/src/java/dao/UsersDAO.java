@@ -32,7 +32,8 @@ public class UsersDAO {
             user.setFullName(rs.getString("user_fullname"));
             user.setUserEmail(rs.getString("user_email"));
             user.setUserPass(rs.getString("user_pass"));
-            
+            user.setIsAdmin(rs.getInt("isAdmin"));
+            user.setNumber(rs.getInt("number"));
             list.add(user);
         }
         return list;
@@ -56,6 +57,13 @@ public class UsersDAO {
         }
         return null;
 
+    }
+    
+    public void editACC(String email) throws SQLException{
+      String sql = "UPDATE `users` SET `user_pass` = '123456' WHERE `users`.`user_email` = '"+email+"' ";
+      Connection connection = DBConnect.getConnecttion();
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.executeUpdate();
     }
     
     public Users checkAccountExist(String email) throws SQLException {
@@ -105,8 +113,19 @@ public class UsersDAO {
     }
     public void signup(String fullName, String email, String pass){
         try {
-            Connection connection = DBConnect.getConnecttion();
-            String sql = "INSERT INTO `users` VALUES ('"+fullName+"','"+email+"', '"+pass+"', b'0')";
+            Connection connection = DBConnect.getConnecttion();       
+            String sql = "INSERT INTO `users` VALUES ('"+fullName+"','"+email+"', '"+pass+"', b'0', '0')";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        
+
+    }
+    public void signup2(String fullName, String email, int sdt){
+        try {
+            Connection connection = DBConnect.getConnecttion();       
+            String sql = "INSERT INTO `users` VALUES ('"+fullName+"','"+email+"', '123456', b'1', '"+sdt+"')";
             PreparedStatement ps = connection.prepareCall(sql);
             ps.executeUpdate();
         } catch (Exception e) {

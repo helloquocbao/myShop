@@ -75,11 +75,17 @@
          
        
        <nav class="navbar navbar-expand-lg navbar-light shadow">
+           
+           
         <div class="container d-flex">
 
             <a class="navbar-brand text-success logo h1 align-self-center" href="Index.jsp">
                 Zay
            </a>
+            
+            
+            
+            
             <div class="" id="templatemo_main_nav">
                 <ul class="nav navbar-nav">
                     <li class="nav-item" style="margin-left: 1px ">
@@ -125,14 +131,18 @@
 
     
     </nav>
-       
+       <p style=" text-align: center; padding-top: 20px"></p>
        
         <div class="container">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                      <h2>Quản lý<a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="listProduct"> Sản phẩm</a><a class=" text-white mt-2" href="managerAccount"> Tài khoản</a></h2>
+                      <h2>Quản lý
+                               <a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="listProduct"> Sản phẩm</a>
+                               <a style="  padding-right: 20px" class=" text-white mt-2" href="managerAccount"> Tài khoản</a>
+                               <a  class=" text-white mt-2" href="managerOder"> Đơn hàng</a>
+                           </h2>
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm</span></a>
@@ -208,7 +218,7 @@
                 <div class="modal-content">
                     <form action="add" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Add Product</h4>
+                            <h4 class="modal-title">Thêm sản phẩm</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					

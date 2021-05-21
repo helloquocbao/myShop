@@ -14,12 +14,21 @@ public class Users {
     private String userEmail;
     private String userPass;
     private int isAdmin;
+    private int number;
     
-    public Users( String fullName, String userEmail, String userPass, int isAdmin ,  String statum) {
+    public Users( String fullName, String userEmail, String userPass, int isAdmin , int number) {
         this.fullName = fullName;
         this.userEmail = userEmail;
         this.userPass = userPass;
         this.isAdmin = isAdmin;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
  

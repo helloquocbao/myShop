@@ -45,7 +45,7 @@
 
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="editAcc" method="post">
+                <form action="EditAcc" method="post">
 
                     <div class="modal-header">						
                         <h4 class="modal-title">Chỉnh sửa tài khoản</h4>                       
@@ -54,7 +54,7 @@
                     <div class="modal-body">	
                         <div class="form-group">
                             <label>Email</label>
-                            <input value="${u.userEmail}" name="id" type="text" class="form-control" readonly required>
+                            <input value="${u.userEmail}" name="email" type="text" class="form-control" readonly required>
                         </div>
                         <div class="form-group">
                             <label>Họ và tên</label>
@@ -62,16 +62,11 @@
                         </div>
 
                         <div class="form-group">
-                             <label>Chức vụ</label>
-                             <select name="category" class="form-select" aria-label="Default select example">
-                                <c:forEach items="${listS}" var="o">
-                                    <option value="${o.isAdmin}">${o.name}</option>
-                                    
-                                </c:forEach>
+                             
                          </select>
                             <div class="modal-footer">
                                 <a href="managerAccount"> <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy"></a> 
-                                    <input type="submit" class="btn btn-success" value="Sửa">
+                                    <input type="submit" class="btn btn-success" value="Khôi phục MK">
                                  </div>    
                                 </div>
                         </div>

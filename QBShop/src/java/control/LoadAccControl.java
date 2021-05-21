@@ -43,7 +43,7 @@ public class LoadAccControl extends HttpServlet {
         String uID = request.getParameter("uid");
         UsersDAO userDAO = new UsersDAO();
         Users user = userDAO.getUserByID(uID);
-        
+         
         StatumDAO statumDAO = new StatumDAO();
         
         List<Statum> listS = statumDAO.getListStatum();

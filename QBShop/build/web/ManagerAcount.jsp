@@ -125,7 +125,7 @@
 
     
     </nav>
-       
+       <p style=" text-align: center; padding-top: 20px">${messger}</p>
        
         <div class="container">
             <div class="table-wrapper">
@@ -139,7 +139,7 @@
                            </h2>
                         </div>
                         <div class="col-sm-6">
-                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm</span></a>
+                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm tài khoản</span></a>
                             <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Xóa</span></a>						
                         </div>
                     </div>
@@ -155,6 +155,7 @@
                             </th>
                             <th>email</th>
                             <th>họ và Tên</th>
+                            <th>SĐT</th>
                             <th>Chức vụ</th>                            
                             <th>Thực thi</th>
                         </tr>
@@ -170,8 +171,13 @@
                                 </td>
                                 <td>${o.userEmail}</td>
                                 <td>${o.fullName}</td>
-                                <td>${o.isAdmin}</td>
-                               
+                                <td>${o.number}</td>
+                                <c:if test="${o.isAdmin == 1}">
+                                <td>Nhân viên</td>
+                               </c:if>
+                                <c:if test="${o.isAdmin == 0}">
+                                <td>khách hàng</td>
+                               </c:if>
                                 </td>
                                 
                                   <td>
@@ -192,52 +198,34 @@
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="add" method="post">
+                    <form action="SinupAD" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Add Product</h4>
+                            <h4 class="modal-title">Thêm tài khoản</h4>
+                            
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
+                        
                         <div class="modal-body">					
                             <div class="form-group">
-                                <label>Name</label>
+                                <label>Họ và tên</label>
                                 <input name="name" type="text" class="form-control" required>
                             </div>
+                            
                             <div class="form-group">
-                                <label>Image</label>
-                                <input name="image" type="text" class="form-control" required>
-                            </div>
+                                <label>Email</label>
+                                <input name="email" type="email" class="form-control" required>
+                            </div>                        
                             <div class="form-group">
-                                <label>Price</label>
-                                <input name="price" type="text" class="form-control" required>
+                                <label>Số điện thoại</label>
+                                <input name="number" type="number" class="form-control" required>
                             </div>
-                            <div class="form-group">
-                                <label>Title</label>
-                                <textarea name="title" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select name="category" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listC}" var="o">
-                                        <option value="${o.categoryID}">${o.categoryName}</option>
-                                    </c:forEach>
-                                </select>
-                                 <label>Giới tính</label>
-                                 <select name="gender" class="form-select" aria-label="Default select example">
-                                 <c:forEach items="${listG}" var="o">
-                                        <option value="${o.genderID}">${o.genderName}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
+                            
 
                         </div>
                         <div class="modal-footer">
                             
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-success" value="Add">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                            <input type="submit" class="btn btn-success" value="Thêm">
                         </div>
                     </form>
                 </div>

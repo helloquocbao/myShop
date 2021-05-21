@@ -138,10 +138,7 @@
                                <a  class=" text-white mt-2" href="managerOder"> Đơn hàng</a>
                            </h2>
                         </div>
-                        <div class="col-sm-6">
-                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm tài khoản</span></a>
-                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Xóa</span></a>						
-                        </div>
+                       
                     </div>
                 </div>
                 <table class="table table-striped table-hover">
@@ -153,11 +150,9 @@
                                     <label for="selectAll"></label>
                                 </span>
                             </th>
-                            <th>email</th>
-                            <th>họ và Tên</th>
-                            <th>SĐT</th>
-                            <th>Chức vụ</th>                            
-                            <th>Thực thi</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>                          
                         </tr>
                     </thead>
                     <tbody>
@@ -169,22 +164,9 @@
                                         <label for="checkbox1"></label>
                                     </span>
                                 </td>
-                                <td>${o.userEmail}</td>
-                                <td>${o.fullName}</td>
-                                <td>${o.number}</td>
-                                <c:if test="${o.isAdmin == 1}">
-                                <td>Nhân viên</td>
-                               </c:if>
-                                <c:if test="${o.isAdmin == 0}">
-                                <td>khách hàng</td>
-                               </c:if>
-                                </td>
-                                
-                                  <td>
-                                    <a href="LoadAcc?uid=${o.userEmail}"  class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="deleteAcc?uid=${o.userEmail}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>   
-                              
+                                <td>${o.productName}</td>
+                                 <td>${o.quantity}</td>
+                                 <td>${o.price}</td>
                               
                             </tr>
                         </c:forEach>
@@ -194,65 +176,7 @@
             <a href="#"><button type="button" class="btn btn-primary">Trở lên trên</button>
 
         </div>
-        <!-- Edit Modal HTML -->
-        <div id="addEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="SinupAD" method="post">
-                        <div class="modal-header">						
-                            <h4 class="modal-title">Thêm tài khoản</h4>
-                            
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        
-                        <div class="modal-body">					
-                            <div class="form-group">
-                                <label>Họ và tên</label>
-                                <input name="name" type="text" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input name="email" type="email" class="form-control" required>
-                            </div>                        
-                            <div class="form-group">
-                                <label>Số điện thoại</label>
-                                <input name="number" type="number" class="form-control" required>
-                            </div>
-                            
-
-                        </div>
-                        <div class="modal-footer">
-                            
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
-                            <input type="submit" class="btn btn-success" value="Thêm">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-     
-        <!-- Delete Modal HTML -->
-        <div id="deleteEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form>
-                        <div class="modal-header">						
-                            <h4 class="modal-title">Xóa tài khoản</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">					
-                            <p>Bạn có muốn xóa toàn bộ thông tin sản phẩm được chọn</p>
-                            <p class="text-warning"><small>Đây là một hành động đáng suy nghĩ.</small></p>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-danger" value="Delete">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+      
     </a>
     
     <script src="js/manager.js" type="text/javascript"></script>

@@ -5,7 +5,7 @@
  */
 package control;
 
-import dao.ProductDAO;
+import dao.UsersDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -16,13 +16,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Users;
 
 /**
  *
  * @author QuocBao
  */
-@WebServlet(name = "EditControl", urlPatterns = {"/edit"})
-public class EditControl extends HttpServlet {
+@WebServlet(name = "SinupAdminControl", urlPatterns = {"/SinupAD"})
+public class SinupAdminControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,19 +37,27 @@ public class EditControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        String name = request.getParameter("name");
-        String productId = request.getParameter("id");
-        String image = request.getParameter("image");
-        String price = request.getParameter("price");
-        String Description = request.getParameter("description");
+        String fullName = request.getParameter("name");
+        String number = request.getParameter("number");       
+        String email = request.getParameter("email");
+        System.out.println(email);
+        UsersDAO dao = new UsersDAO();
+        Users a = dao.checkAccountExist(email);
         
-        String category = request.getParameter("category");
-        String gender = request.getParameter("gender");
+        int sdt = Integer.parseInt(number);
         
-        ProductDAO dao = new ProductDAO();
-      dao.editProduct(category, gender, name, image, price, Description, productId);
-      response.sendRedirect("listProduct");
+        if(a == null){
+                // dc sign up
+                dao.signup2(fullName, email, sdt);   
+                response.sendRedirect("managerAccount");
+            }else{
+                // day ve manager accout
+                request.setAttribute("messger", "email đã tồn tại trong hệ thông");
+                request.getRequestDispatcher("managerAccount").forward(request, response);
+            }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -66,7 +75,7 @@ public class EditControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(EditControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinupAdminControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -84,7 +93,7 @@ public class EditControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(EditControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinupAdminControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
