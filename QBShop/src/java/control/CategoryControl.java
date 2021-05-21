@@ -11,6 +11,7 @@ import dao.ProductDAO;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,6 +57,7 @@ public class CategoryControl extends HttpServlet {
        List<Gender> listG = genderDAO.getListGender();
 
        
+            
        request.setAttribute("listP", listP);
        request.setAttribute("listC", listC);
        request.setAttribute("listG", listG);

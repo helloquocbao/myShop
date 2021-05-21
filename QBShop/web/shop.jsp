@@ -1,4 +1,7 @@
- <%-- 
+ <%@page import="java.util.ArrayList"%>
+<%@page import="model.Product"%>
+<%@page import="dao.ProductDAO"%>
+<%-- 
     Document   : shop
     Created on : Mar 8, 2021, 12:30:50 AM
     Author     : QuocBao
@@ -10,13 +13,7 @@
 <%@page import="dao.CategoryDAO"%> 
 <%@page import= "model.Cart"%>
 
-<%
-    Cart cart = (Cart) session.getAttribute("cart");
-    if(cart == null){
-        cart = new Cart();
-        session.setAttribute("cart", cart);
-    }
-%>
+
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -49,7 +46,23 @@
             CategoryDAO categoryDAO = new CategoryDAO();
         %>
        
-
+        <%
+            ProductDAO productDAO = new ProductDAO();
+            long categoryID = 0;
+            if (request.getParameter("categoryID") != null) {
+                categoryID = (long) Long.parseLong(request.getParameter("categoryID"));
+            }
+            
+            Cart cart = (Cart) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new Cart();
+                session.setAttribute("cart", cart);
+            }
+            
+          %>
+       
+            
+            
 
 
         <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -115,7 +128,7 @@
                             <ul id="collapseThree" class="collapse list-unstyled pl-3">
                                 <c:forEach items="${listC}" var="o">
                                     
-                                    <li><a class="text-decoration-none" href="category?category=${o.categoryID}">${o.categoryName}</a></li>
+                                    <li><a class="text-decoration-none" href="category?category=${o.categoryID}&pages=1">${o.categoryName}</a></li>
                                 </c:forEach>    
                             </ul>
                         </li>
@@ -201,18 +214,18 @@
 
                     <div div="row">
                         <ul class="pagination pagination-lg justify-content-end">
-                            <li class="page-item disabled">
-                                <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="shop.jsp" tabindex="-1">1</a>
+                            
+                                 <c:if test="${tag > 1}">
+                             <a class="page-link  rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="shop?index=${tag - 1}">Trước</a>
+                                 </c:if>
+                              <c:forEach begin="1" end="${endP}" var="i">
+                            <li class="page-item">
+                                <a class="page-link ${tag == i ? "active":""} rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="shop?index=${i}" >${i}</a>
                             </li>
-                            <li class="page-item ">
-                                <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="shop.jsp?page=2">2</a>
-                                
-                                
-                                 
-                            </li>
-                            <li class="page-item ">
-                                <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="shop.jsp?page=3">3</a>
-                            </li>
+                            </c:forEach>
+                        <c:if test="${tag < endP}">
+                        <a class="page-link  rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="shop?index=${tag + 1}">Sau</a>   
+                        </c:if>
                         </ul>
                     </div>
                 </div>
@@ -308,12 +321,7 @@
                             </div>
                             <!--End Carousel Wrapper-->
 
-                            <!--Controls-->
-                            <div class="col-1 align-self-center">
-                                <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
-                                    <i class="text-light fas fa-chevron-right"></i>
-                                </a>
-                            </div>
+                          
                             <!--End Controls-->
                         </div>
                     </div>

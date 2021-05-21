@@ -132,7 +132,11 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                      <h2>Quản lý<a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="listProduct"> Sản phẩm</a><a class=" text-white mt-2" href="managerAccount"> Tài khoản</a></h2>
+                           <h2>Quản lý
+                               <a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="listProduct"> Sản phẩm</a>
+                               <a style="  padding-right: 20px" class=" text-white mt-2" href="managerAccount"> Tài khoản</a>
+                               <a  class=" text-white mt-2" href="managerOder"> Đơn hàng</a>
+                           </h2>
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm</span></a>
@@ -149,12 +153,12 @@
                                     <label for="selectAll"></label>
                                 </span>
                             </th>
-                            <th>ID</th>
-                            <th>Tên</th>
-                            <th>Ảnh</th>
-                            <th>Mô tả</th>
-                            <th>Giá</th>     
-                            <th>Thực thi</th>
+                            <th>ID Bill</th>
+                            <th>Email người đặt</th>
+                            <th>Tổng tiền</th>                            
+                            <th>Địa chỉ</th>
+                            <th>ngày đặt</th>
+                             <th>Xem</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -166,39 +170,24 @@
                                         <label for="checkbox1"></label>
                                     </span>
                                 </td>
-                                <td>${o.productID}</td>
-                                <td>${o.productName}</td>
-                                <td>
-                                    <img style="height:200px" src="${o.productImage}">
+                                <td>${o.billID}</td>
+                                <td>${o.email}</td>
+                                <td>${o.total}</td>
+                                <td>${o.address}</td><!-- comment -->
+                                <td>${o.date}</td>
                                 </td>
-                                <td>${o.productDescription}  
-                                </td>
-                                <td>${o.productPrice} VNĐ</td>
-                                <td>
-                                    <a href="loadProduct?pid=${o.productID}"  class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="delete?pid=${o.productID}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
+                                
+                                  <td>
+                                    <a href="LoadBill?billID=${o.billID}"  class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    
+                                </td>   
+                              
+                              
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-                <div class="clearfix">
-                    <div class="hint-text">Hiển thị <b>6</b> trong số <b>${count}</b> entries</div>
-                    <ul class="pagination">
-                        <c:if test="${tag > 1}">
-                        <li class="page-item "><a href="listProduct?index=${tag - 1}">Trước</a></li>
-                        </c:if>
-                        <c:forEach begin="1" end="${endP}" var="i">
-                        
-                        <li class="page-item ${tag == i ? "active":""}"><a href="listProduct?index=${i}" class="page-link">${i}</a></li>
-                        
-                        </c:forEach>
-                        <c:if test="${tag < endP}">
-                        <li class="page-item"><a href="listProduct?index=${tag + 1}" class="page-link">Tiếp theo</a></li>
-                       </c:if>
-                    </ul>
-                </div>
-            </div>
+                
             <a href="#"><button type="button" class="btn btn-primary">Trở lên trên</button>
 
         </div>
@@ -264,12 +253,12 @@
                 <div class="modal-content">
                     <form>
                         <div class="modal-header">						
-                            <h4 class="modal-title">Delete Product</h4>
+                            <h4 class="modal-title">Xóa tài khoản</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
                             <p>Bạn có muốn xóa toàn bộ thông tin sản phẩm được chọn</p>
-                          <p class="text-warning"><small>Đây là một hành động đáng suy nghĩ.</small></p>
+                            <p class="text-warning"><small>Đây là một hành động đáng suy nghĩ.</small></p>
                         </div>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">

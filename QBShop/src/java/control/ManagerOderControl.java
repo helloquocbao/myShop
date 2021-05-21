@@ -5,13 +5,10 @@
  */
 package control;
 
-import dao.CategoryDAO;
-import dao.GenderDAO;
-import dao.ProductDAO;
+import dao.BillDAO;
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,16 +17,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Category;
-import model.Gender;
-import model.Product;
+import model.Bill;
 
 /**
  *
  * @author QuocBao
  */
-@WebServlet(name = "ShopControl", urlPatterns = {"/shop"})
-public class ShopControl extends HttpServlet {
+@WebServlet(name = "ManagerOderControl", urlPatterns = {"/managerOder"})
+public class ManagerOderControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,38 +38,11 @@ public class ShopControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        //b1: get data tu from DAO
-        String indexPage = request.getParameter("index");
-       if(indexPage == null){
-           indexPage ="1";
-       }
-       int index = Integer.parseInt(indexPage);
-       ProductDAO productDAO = new ProductDAO();
-       int count = productDAO.countProduct();
-       int endPage = count/6;
-       if(count %6 == 0){
-           endPage++;
-       }
-       
-       CategoryDAO categoryDAO = new CategoryDAO();
-       GenderDAO genderDAO = new GenderDAO();
-       
-       
-       
-       List<Product> list =productDAO.pagingProduct2(index);
-       List<Category> listC = categoryDAO.getListCategory();
-       List<Gender> listG = genderDAO.getListGender();  
-       
-       
-       //b2: set data to jsp
-       request.setAttribute("listP", list);
-       request.setAttribute("listC", listC);
-       request.setAttribute("listG", listG);
-      
-       request.setAttribute("count", count);
-       request.setAttribute("endP", endPage);
-       request.setAttribute("tag", index);
-       request.getRequestDispatcher("shop.jsp").forward(request, response);
+        BillDAO billDAO = new BillDAO();
+        List<Bill> list = billDAO.getListBill();
+        request.setAttribute("listP", list);
+        
+         request.getRequestDispatcher("managerOrder.jsp").forward(request, response);
         
     }
 
@@ -93,7 +61,7 @@ public class ShopControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ShopControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerOderControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -111,7 +79,7 @@ public class ShopControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ShopControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerOderControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

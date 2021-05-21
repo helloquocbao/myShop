@@ -93,7 +93,7 @@
                        
                        <c:if  test="${sessionScope.acc.isAdmin  == 1}">
                         <li class="nav-item">
-                        <a class="nav-link" href="manager">Quản lý</a>
+                        <a class="nav-link" href="listProduct">Quản lý</a>
                         </li>
                         </c:if>
                                       
@@ -132,7 +132,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                      <h2>Quản lý<a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="manager"> Sản phẩm</a><a class=" text-white mt-2" href="managerAccount"> Tài khoản</a></h2>
+                      <h2>Quản lý<a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="listProduct"> Sản phẩm</a><a class=" text-white mt-2" href="managerAccount"> Tài khoản</a></h2>
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm</span></a>
@@ -183,15 +183,19 @@
                     </tbody>
                 </table>
                 <div class="clearfix">
-                    <div class="hint-text">Hiển thị <b>6</b> trong số <b>25</b> entries</div>
+                    <div class="hint-text">Hiển thị <b>6</b> trong số <b>${count}</b> entries</div>
                     <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Trước</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Tiếp theo</a></li>
+                        <c:if test="${tag > 1}">
+                        <li class="page-item "><a href="listProduct?index=${tag - 1}">Trước</a></li>
+                        </c:if>
+                        <c:forEach begin="1" end="${endP}" var="i">
+                        
+                        <li class="page-item ${tag == i ? "active":""}"><a href="listProduct?index=${i}" class="page-link">${i}</a></li>
+                        
+                        </c:forEach>
+                        <c:if test="${tag < endP}">
+                        <li class="page-item"><a href="listProduct?index=${tag + 1}" class="page-link">Tiếp theo</a></li>
+                       </c:if>
                     </ul>
                 </div>
             </div>
@@ -264,8 +268,8 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
-                            <p>Are you sure you want to delete these Records?</p>
-                            <p class="text-warning"><small>This action cannot be undone.</small></p>
+                            <p>Bạn có muốn xóa toàn bộ thông tin sản phẩm được chọn</p>
+                          <p class="text-warning"><small>Đây là một hành động đáng suy nghĩ.</small></p>
                         </div>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">

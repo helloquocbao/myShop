@@ -213,17 +213,103 @@ public class ProductDAO {
         PreparedStatement ps = connection.prepareCall(sql);
         ps.executeUpdate();
     }  
+     
+     // note
+    public ArrayList<Product> getListProductByNav(long categoryID, int firstResult,
+            int maxResult) throws SQLException {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT * FROM product WHERE category_id = '" + categoryID + "' limit ?,?";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.setInt(1, firstResult);
+        ps.setInt(2, maxResult);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Product> list = new ArrayList<>();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getLong("product_id"));
+            product.setProductName(rs.getString("product_name"));
+            product.setProductImage(rs.getString("product_image"));
+            product.setProductPrice(rs.getDouble("product_price"));
+            product.setProductDescription(rs.getString("product_description"));
+            list.add(product);
+        }
+        return list;
+    }
+     // Tính tổng sản phẩm
+ public int countProduct() throws SQLException {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT count(product_id) FROM product";
+
+       PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        int count = 0;
+        while (rs.next()) {
+            count = rs.getInt(1);
+        }
+        return count;
+    }
+     public List<Product> pagingProduct(int index) throws SQLException{
+         List<Product> list = new ArrayList<>();
+          Connection connection = DBConnect.getConnecttion();
+         String sql = "SELECT * FROM product  ORDER BY product.product_id ASC LIMIT ?,6";
+         PreparedStatement ps = connection.prepareCall(sql);
+         ps.setInt(1,(index-1) *6);
+         ResultSet rs = ps.executeQuery();
+         while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getLong("product_id"));
+            product.setProductName(rs.getString("product_name"));
+            product.setProductImage(rs.getString("product_image"));
+            product.setProductPrice(rs.getDouble("product_price"));
+            product.setProductDescription(rs.getString("product_description"));
+            list.add(product);
+        }
+        return list;
+     }
+     public List<Product> pagingProduct2(int index) throws SQLException{
+         List<Product> list = new ArrayList<>();
+          Connection connection = DBConnect.getConnecttion();
+         String sql = "SELECT * FROM product  ORDER BY product.product_id ASC LIMIT ?,9";
+         PreparedStatement ps = connection.prepareCall(sql);
+         ps.setInt(1,(index-1) *9);
+         ResultSet rs = ps.executeQuery();
+         while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getLong("product_id"));
+            product.setProductName(rs.getString("product_name"));
+            product.setProductImage(rs.getString("product_image"));
+            product.setProductPrice(rs.getDouble("product_price"));
+            product.setProductDescription(rs.getString("product_description"));
+            list.add(product);
+        }
+        return list;
+     }
+     public List<Product> pagingProduct3() throws SQLException{
+         List<Product> list = new ArrayList<>();
+          Connection connection = DBConnect.getConnecttion();
+         String sql = "SELECT * FROM product  ORDER BY product.product_id DESC LIMIT 0,3";
+         PreparedStatement ps = connection.prepareCall(sql);
+         
+         ResultSet rs = ps.executeQuery();
+         while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getLong("product_id"));
+            product.setProductName(rs.getString("product_name"));
+            product.setProductImage(rs.getString("product_image"));
+            product.setProductPrice(rs.getDouble("product_price"));
+            product.setProductDescription(rs.getString("product_description"));
+            list.add(product);
+        }
+        return list;
+     }
+     
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO();    
-        
+        System.out.println(dao.countProduct());
+       
        }
-
     public Product getProduct(String s) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-   
-    
-    
-    
+  
 }
