@@ -51,6 +51,7 @@ public class UsersDAO {
                 userr.setUserEmail(rs.getString("user_email"));
                 userr.setUserPass(rs.getString("user_pass"));
                 userr.setIsAdmin(rs.getInt("isAdmin"));
+                userr.setNumber(rs.getInt("number"));
                 return userr;
             }
         } catch (SQLException e) {
@@ -61,6 +62,17 @@ public class UsersDAO {
     
     public void editACC(String email) throws SQLException{
       String sql = "UPDATE `users` SET `user_pass` = '123456' WHERE `users`.`user_email` = '"+email+"' ";
+      Connection connection = DBConnect.getConnecttion();
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.executeUpdate();
+    }
+    
+     public void editInfoAcc(String email, int number, String name, String newPass) throws SQLException{
+         String sql = "UPDATE `users` SET "
+                                + "`user_fullname` = '"+name+"', "
+                                + "`user_pass` = '"+newPass+"', "
+                                + "`number` = '"+number+"' "
+                                + "WHERE `users`.`user_email` = '"+email+"'";  
       Connection connection = DBConnect.getConnecttion();
         PreparedStatement ps = connection.prepareCall(sql);
         ps.executeUpdate();
@@ -98,6 +110,7 @@ public class UsersDAO {
             users.setUserEmail(rs.getString("user_email"));
             users.setUserPass(rs.getString("user_pass"));
             users.setIsAdmin(rs.getInt("isAdmin"));
+            users.setNumber(rs.getInt("number"));
           
             return users;
         }
@@ -130,18 +143,16 @@ public class UsersDAO {
             ps.executeUpdate();
         } catch (Exception e) {
         }
-        
 
     }
+    
     
     public static void main(String[] args) throws SQLException {
         UsersDAO dao = new UsersDAO();
 //        for (Users ds : dao.getListAccount()) {
 //            System.out.println(ds.getUserID()+ " - " + ds.getFullName()+ " - " + ds.getUserEmail() + " - " + ds.getUserPass());
 //        }
-        Users user =   dao.getUserByID("bao@gmail.com");
+        
       
-            System.out.println(user.getFullName()+ " - "+ " - " + user.getUserEmail() + " - " + user.getUserPass() + " -" +user.getIsAdmin() );
-       
     }
 }

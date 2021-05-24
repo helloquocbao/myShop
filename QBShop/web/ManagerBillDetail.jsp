@@ -83,7 +83,7 @@
             <div class="" id="templatemo_main_nav">
                 <ul class="nav navbar-nav">
                     <li class="nav-item" style="margin-left: 1px ">
-                            <a class="nav-link" href="Index.jsp">Trang chủ</a>
+                            <a class="nav-link" href="Index">Trang chủ</a>
                         </li>
                       
                         <li class="nav-item">
@@ -109,7 +109,7 @@
                     <c:if  test="${sessionScope.acc  != null}">  
                      <li class="nav-item" style="display:flex">
                       
-                        <a class="nav-icon position-relative text-decoration-none" href="account">
+                        <a class="nav-icon position-relative text-decoration-none" href="InfoAcc">
                             <i class="fa fa-fw fa-user text-dark mr-3"></i>
                             <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">${sessionScope.acc.fullName}</span>
                         </a>

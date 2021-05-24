@@ -89,7 +89,7 @@
 
                             </select>   
                             <div class="modal-footer">
-                                    <a href="manager"> <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy"></a> 
+                                    <a href="listProduct"> <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy"></a> 
                                    
                                     <input type="submit" class="btn btn-success" value="Sửa">
                                  </div>    

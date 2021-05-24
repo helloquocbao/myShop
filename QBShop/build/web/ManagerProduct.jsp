@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
-     
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -34,9 +34,9 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-       
+
         <link href="css/manager.css" rel="stylesheet" type="text/css"/>
         <style>
             img{
@@ -46,21 +46,21 @@
         </style>
     </head>
     <body>
-         <%
+        <%
             Users users = (Users) session.getAttribute("acc");
             if (users == null) {
                 response.sendRedirect("/QBShop/login.jsp");
             }
         %>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-         <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
             <div class="container text-light">
                 <div class="w-100 d-flex justify-content-between">
                     <div>
                         <i class="fa fa-envelope mx-2"></i>
-                        <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:lehoquocbao9@zay.com">lehoquocbao9@zay.com</a>
                         <i class="fa fa-phone mx-2"></i>
-                        <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="tel:0917982707">0917982707</a>
                     </div>
                     <div>
                         <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
@@ -71,79 +71,90 @@
                 </div>
             </div>
         </nav>
-       
-         
-       
-       <nav class="navbar navbar-expand-lg navbar-light shadow">
-           
-           
-        <div class="container d-flex">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="Index.jsp">
-                Zay
-           </a>
-            
-            
-            
-            
-            <div class="" id="templatemo_main_nav">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item" style="margin-left: 1px ">
-                            <a class="nav-link" href="Index.jsp">Trang chủ</a>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
+
+
+            <div class="container d-flex">
+
+                <a class="navbar-brand text-success logo h1 align-self-center" href="Index.jsp">
+                    Zay
+                </a>
+
+
+
+
+                <div class="" id="templatemo_main_nav">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item" style="margin-left: 1px ">
+                            <a  class="nav-link" href="Index">Trang chủ</a>
                         </li>
-                      
+
                         <li class="nav-item">
                             <a class="nav-link" href="shop">Shop</a>
 
                         </li>
-                       
-                       <c:if  test="${sessionScope.acc.isAdmin  == 1}">
-                        <li class="nav-item">
-                        <a class="nav-link" href="listProduct">Quản lý</a>
-                        </li>
-                        </c:if>
-                                      
-                         <c:if test="${sessionScope.acc  == null}">
 
-                        <li class="nav-item">                     
-                            <a class="nav-icon position-relative text-decoration-none" href="login.jsp">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">abc</span>
-                    </a>
-                    </li >
-                     </c:if>
-                    <c:if  test="${sessionScope.acc  != null}">  
-                     <li class="nav-item" style="display:flex">
-                      
-                        <a class="nav-icon position-relative text-decoration-none" href="account">
-                            <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">${sessionScope.acc.fullName}</span>
-                        </a>
-                        
-                          <a class="nav-icon position-relative text-decoration-none" href="logout">               
-                            <i class="fas fa-sign-out-alt text-dark mr-3"></i>
-                        </a>
-                        </li>
-                         </c:if>                       
+                        <c:if  test="${sessionScope.acc.isAdmin  == 1}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="listProduct">Quản lý</a>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.acc  == null}">
+
+                            <li class="nav-item">                     
+                                <a class="nav-icon position-relative text-decoration-none" href="login.jsp">
+                                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">abc</span>
+                                </a>
+                            </li >
+                        </c:if>
+                        <c:if  test="${sessionScope.acc  != null}">  
+                            <li class="nav-item" style="display:flex">
+
+                                <a class="nav-icon position-relative text-decoration-none" href="account">
+                                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">${sessionScope.acc.fullName}</span>
+                                </a>
+
+                                <a class="nav-icon position-relative text-decoration-none" href="logout">               
+                                    <i class="fas fa-sign-out-alt text-dark mr-3"></i>
+                                </a>
+                            </li>
+                        </c:if>                       
                     </ul>
                 </div>
             </div>
 
-    
-    </nav>
-       <p style=" text-align: center; padding-top: 20px"></p>
-       
+
+        </nav>
+        <p style=" text-align: center; padding-top: 20px"></p>
+
         <div class="container">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-sm-6">
-                      <h2>Quản lý
-                               <a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="listProduct"> Sản phẩm</a>
-                               <a style="  padding-right: 20px" class=" text-white mt-2" href="managerAccount"> Tài khoản</a>
-                               <a  class=" text-white mt-2" href="managerOder"> Đơn hàng</a>
-                           </h2>
+                        <div class="col-sm-6" style="height: 70px">
+                            <h2>Quản lý
+                                <a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="listProduct"> Sản phẩm</a>
+                                <a style="  padding-right: 20px" class=" text-white mt-2" href="managerAccount"> Tài khoản</a>
+                                <a  class=" text-white mt-2" href="managerOder"> Đơn hàng</a>
+                                <div class="input-group" style="display: flex; padding-top: 15px">
+                                    <div >
+                                        <input type="search" id="form1" class="form-control" />
+
+                                    </div>
+                                    <button type="button" class="btn btn-primary">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </h2>
+                            
                         </div>
+
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm</span></a>
                             <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Xóa</span></a>						
@@ -168,7 +179,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${listP}" var="o">
+                        <c:forEach items="${listP}" var="o">
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
@@ -196,16 +207,16 @@
                     <div class="hint-text">Hiển thị <b>6</b> trong số <b>${count}</b> entries</div>
                     <ul class="pagination">
                         <c:if test="${tag > 1}">
-                        <li class="page-item "><a href="listProduct?index=${tag - 1}">Trước</a></li>
-                        </c:if>
-                        <c:forEach begin="1" end="${endP}" var="i">
-                        
-                        <li class="page-item ${tag == i ? "active":""}"><a href="listProduct?index=${i}" class="page-link">${i}</a></li>
-                        
+                            <li class="page-item "><a href="listProduct?index=${tag - 1}">Trước</a></li>
+                            </c:if>
+                            <c:forEach begin="1" end="${endP}" var="i">
+
+                            <li class="page-item ${tag == i ? "active":""}"><a href="listProduct?index=${i}" class="page-link">${i}</a></li>
+
                         </c:forEach>
                         <c:if test="${tag < endP}">
-                        <li class="page-item"><a href="listProduct?index=${tag + 1}" class="page-link">Tiếp theo</a></li>
-                       </c:if>
+                            <li class="page-item"><a href="listProduct?index=${tag + 1}" class="page-link">Tiếp theo</a></li>
+                            </c:if>
                     </ul>
                 </div>
             </div>
@@ -249,9 +260,9 @@
                                         <option value="${o.categoryID}">${o.categoryName}</option>
                                     </c:forEach>
                                 </select>
-                                 <label>Giới tính</label>
-                                 <select name="gender" class="form-select" aria-label="Default select example">
-                                 <c:forEach items="${listG}" var="o">
+                                <label>Giới tính</label>
+                                <select name="gender" class="form-select" aria-label="Default select example">
+                                    <c:forEach items="${listG}" var="o">
                                         <option value="${o.genderID}">${o.genderName}</option>
                                     </c:forEach>
                                 </select>
@@ -259,7 +270,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            
+
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                             <input type="submit" class="btn btn-success" value="Add">
                         </div>
@@ -267,7 +278,7 @@
                 </div>
             </div>
         </div>
-     
+
         <!-- Delete Modal HTML -->
         <div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">
@@ -279,7 +290,7 @@
                         </div>
                         <div class="modal-body">					
                             <p>Bạn có muốn xóa toàn bộ thông tin sản phẩm được chọn</p>
-                          <p class="text-warning"><small>Đây là một hành động đáng suy nghĩ.</small></p>
+                            <p class="text-warning"><small>Đây là một hành động đáng suy nghĩ.</small></p>
                         </div>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -290,7 +301,7 @@
             </div>
         </div>
     </a>
-    
+
     <script src="js/manager.js" type="text/javascript"></script>
 </body>
 </html>

@@ -52,15 +52,15 @@
                 response.sendRedirect("/QBShop/login.jsp");
             }
         %>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-         <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
             <div class="container text-light">
                 <div class="w-100 d-flex justify-content-between">
                     <div>
                         <i class="fa fa-envelope mx-2"></i>
-                        <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:lehoquocbao9@zay.com">lehoquocbao9@zay.com</a>
                         <i class="fa fa-phone mx-2"></i>
-                        <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="tel:0917982707">0917982707</a>
                     </div>
                     <div>
                         <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
@@ -71,67 +71,74 @@
                 </div>
             </div>
         </nav>
-       
-         
-       
-       <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="Index.jsp">
-                Zay
-           </a>
-            <div class="" id="templatemo_main_nav">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item" style="margin-left: 1px ">
-                            <a class="nav-link" href="Index.jsp">Trang chủ</a>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
+
+
+            <div class="container d-flex">
+
+                <a class="navbar-brand text-success logo h1 align-self-center" href="Index.jsp">
+                    Zay
+                </a>
+
+
+
+
+                <div class="" id="templatemo_main_nav">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item" style="margin-left: 1px ">
+                            <a  class="nav-link" href="Index.jsp">Trang chủ</a>
                         </li>
-                      
+
                         <li class="nav-item">
                             <a class="nav-link" href="shop">Shop</a>
 
                         </li>
-                       
-                       <c:if  test="${sessionScope.acc.isAdmin  == 1}">
-                        <li class="nav-item">
-                        <a class="nav-link" href="listProduct">Quản lý</a>
-                        </li>
-                        </c:if>
-                                      
-                         <c:if test="${sessionScope.acc  == null}">
 
-                        <li class="nav-item">                     
-                            <a class="nav-icon position-relative text-decoration-none" href="login.jsp">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">abc</span>
-                    </a>
-                    </li >
-                     </c:if>
-                    <c:if  test="${sessionScope.acc  != null}">  
-                     <li class="nav-item" style="display:flex">
-                      
-                        <a class="nav-icon position-relative text-decoration-none" href="account">
-                            <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">${sessionScope.acc.fullName}</span>
-                        </a>
-                        
-                          <a class="nav-icon position-relative text-decoration-none" href="logout">               
-                            <i class="fas fa-sign-out-alt text-dark mr-3"></i>
-                        </a>
-                        </li>
-                         </c:if>                       
+                        <c:if  test="${sessionScope.acc.isAdmin  == 1}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="listProduct">Quản lý</a>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.acc  == null}">
+
+                            <li class="nav-item">                     
+                                <a class="nav-icon position-relative text-decoration-none" href="login.jsp">
+                                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">abc</span>
+                                </a>
+                            </li >
+                        </c:if>
+                        <c:if  test="${sessionScope.acc  != null}">  
+                            <li class="nav-item" style="display:flex">
+
+                                <a class="nav-icon position-relative text-decoration-none" href="account">
+                                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">${sessionScope.acc.fullName}</span>
+                                </a>
+
+                                <a class="nav-icon position-relative text-decoration-none" href="logout">               
+                                    <i class="fas fa-sign-out-alt text-dark mr-3"></i>
+                                </a>
+                            </li>
+                        </c:if>                       
                     </ul>
                 </div>
             </div>
 
-    
-    </nav>
-       <p style=" text-align: center; padding-top: 20px">${messger}</p>
+
+        </nav>
+     
+       <p style=" text-align: center; padding-top: 20px"></p>
        
         <div class="container">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="height: 70px">
                            <h2>Quản lý
                                <a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="listProduct"> Sản phẩm</a>
                                <a style="  padding-right: 20px" class=" text-white mt-2" href="managerAccount"> Tài khoản</a>

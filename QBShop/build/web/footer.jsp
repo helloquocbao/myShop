@@ -50,7 +50,7 @@
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Các trang</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="Index.jsp">Trang chủ</a></li>
+                        <li><a class="text-decoration-none" href="Index">Trang chủ</a></li>
                         <li><a class="text-decoration-none" href="about.jsp">Thông tin</a></li>
                         <li><a class="text-decoration-none" href="shop">Shop</a></li>
                         <li><a class="text-decoration-none" href="contact.jsp">Liên hệ</a></li>

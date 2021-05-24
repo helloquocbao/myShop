@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="model.Users"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -30,7 +31,7 @@
         <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="Index.jsp">
+            <a class="navbar-brand text-success logo h1 align-self-center" href="Index">
                 Zay
            </a>
 
@@ -42,7 +43,7 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="Index.jsp">Trang chủ</a>
+                            <a class="nav-link" href="Index">Trang chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.jsp">Thông tin</a>
@@ -70,7 +71,7 @@
                     <c:if test="${sessionScope.acc  == null}">
                     <a class="nav-icon position-relative text-decoration-none" href="login.jsp">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"> </span>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"> login</span>
                     </a>
                     </c:if>
                     
@@ -78,7 +79,7 @@
                         <a class="nav-icon position-relative text-decoration-none" href="logout" >               
                             <i class="fas fa-sign-out-alt text-dark mr-3"></i>
                         </a>
-                        <a class="nav-icon position-relative text-decoration-none" href="account">
+                        <a class="nav-icon position-relative text-decoration-none" href="InfoAcc">
                             <i class="fa fa-fw fa-user text-dark mr-3"></i>
                             <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">${sessionScope.acc.fullName}</span>
                         </a>
