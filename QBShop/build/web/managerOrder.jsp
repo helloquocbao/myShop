@@ -11,7 +11,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>Zay | Quản lý</title>
      
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -155,6 +155,7 @@
                             <th>Tổng tiền</th>                            
                             <th>Địa chỉ</th>
                             <th>ngày đặt</th>
+                            <th>SĐT nhận hàng</th>
                              <th>Xem</th>
                         </tr>
                     </thead>
@@ -170,8 +171,11 @@
                                 <td>${o.billID}</td>
                                 <td>${o.email}</td>
                                 <td>${o.total}</td>
+                               
                                 <td>${o.address}</td><!-- comment -->
+                                
                                 <td>${o.date}</td>
+                                 <td>${o.number}</td>
                                 </td>
                                 
                                   <td>

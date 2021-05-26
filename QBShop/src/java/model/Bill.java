@@ -18,17 +18,26 @@ public class Bill {
     private double total;
     private String address;
     private Timestamp date;
-
+    private int number;
     public Bill() {
         
     }
 
-    public Bill(long billID, String email, double total, String address, Timestamp date) {
+    public Bill(long billID, String email, double total, String address, Timestamp date,int number) {
         this.billID = billID;
         this.email = email;
         this.total = total;
         this.address = address;
         this.date = date;
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
    

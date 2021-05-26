@@ -93,13 +93,7 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public void getAmout(int count) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public double getAmount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
     
 

@@ -112,7 +112,7 @@
             <form class="col-md-9 m-auto" method="post" role="form">
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputname">Name</label>
+                        <label for="inputname">Họ và tên</label>
                         <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">
                     </div>
                     <div class="form-group col-md-6 mb-3">
@@ -121,16 +121,16 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="inputsubject">Subject</label>
-                    <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject">
+                    <label for="inputsubject">Tiêu đề</label>
+                    <input type="text" class="form-control mt-1" id="subject" name="title" placeholder="Subject">
                 </div>
                 <div class="mb-3">
-                    <label for="inputmessage">Message</label>
+                    <label for="inputmessage">Nội dụng góp ý</label>
                     <textarea class="form-control mt-1" id="message" name="message" placeholder="Message" rows="8"></textarea>
                 </div>
                 <div class="row">
                     <div class="col text-end mt-2">
-                        <button type="submit" class="btn btn-success btn-lg px-3">Let’s Talk</button>
+                        <button type="submit" class="btn btn-success btn-lg px-3">Gửi</button>
                     </div>
                 </div>
             </form>

@@ -24,13 +24,14 @@ public class BillDAO {
 
     public void insertBill(Bill bill) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "INSERT INTO bill VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO bill VALUES(?,?,?,?,?,?)";
         PreparedStatement ps = connection.prepareCall(sql);
         ps.setLong(1, bill.getBillID());
         ps.setString(2, bill.getEmail());
         ps.setDouble(3, bill.getTotal());
         ps.setString(4, bill.getAddress());
         ps.setTimestamp(5, bill.getDate());
+        ps.setInt(6,bill.getNumber());
         ps.executeUpdate();
     }
     
@@ -47,7 +48,7 @@ public class BillDAO {
             bill.setTotal(rs.getLong("total"));
             bill.setAddress(rs.getString("address"));
             bill.setDate(rs.getTimestamp("date"));
-            
+            bill.setNumber(rs.getInt("number"));
             list.add(bill);
         }
         return list;

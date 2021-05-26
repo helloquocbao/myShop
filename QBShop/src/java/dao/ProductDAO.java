@@ -184,6 +184,26 @@ public class ProductDAO {
         }
         return list;
     }
+    public List<Product> getListProductByName2(String txtSearch, int index)
+            throws SQLException {
+        Connection connection = DBConnect.getConnecttion();
+      
+        String sql= "SELECT * FROM product WHERE product_name LIKE '%"+txtSearch+"%'  ORDER BY product.product_id ASC LIMIT "+index+",9";
+        PreparedStatement ps = connection.prepareCall(sql);
+    
+        ResultSet rs = ps.executeQuery();
+        List<Product> list = new ArrayList<>();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getInt("product_id"));
+            product.setProductName(rs.getString("product_name"));
+            product.setProductImage(rs.getString("product_image"));
+            product.setProductPrice(rs.getDouble("product_price"));
+            product.setProductDescription(rs.getString("product_description"));
+            list.add(product);
+        }
+        return list;
+    }
     
     public void deleteProduct(String pid) throws SQLException{
         String sql = "delete from product where `product`.`product_id` =" +pid;  
@@ -248,6 +268,7 @@ public class ProductDAO {
         }
         return count;
     }
+
      public List<Product> pagingProduct(int index) throws SQLException{
          List<Product> list = new ArrayList<>();
           Connection connection = DBConnect.getConnecttion();
@@ -284,6 +305,31 @@ public class ProductDAO {
         }
         return list;
      }
+     
+     public List<Product> getListProductByCategory2(String proID)
+            throws SQLException {
+        Connection connection = DBConnect.getConnecttion();
+      String sql="SELECT * FROM product "
+              + "WHERE product.category_id ="
+              + "(SELECT product.category_id "
+              + "from product WHERE product.product_id = "+proID+")";
+        
+        PreparedStatement ps = connection.prepareCall(sql);
+    
+        ResultSet rs = ps.executeQuery();
+        List<Product> list = new ArrayList<>();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getInt("product_id"));
+            product.setProductName(rs.getString("product_name"));
+            product.setProductImage(rs.getString("product_image"));
+            product.setProductPrice(rs.getDouble("product_price"));
+            product.setProductDescription(rs.getString("product_description"));
+            list.add(product);
+        }
+        return list;
+    }
+     
      public List<Product> pagingProduct3() throws SQLException{
          List<Product> list = new ArrayList<>();
           Connection connection = DBConnect.getConnecttion();
@@ -303,9 +349,14 @@ public class ProductDAO {
         return list;
      }
      
+     
+     
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO();    
-        System.out.println(dao.countProduct());
+         for (Product ds : dao.getListProductByCategory2("7")){
+             System.out.println(ds.getProductName() + "- " + ds.getProductPrice());
+         }
+        
        
        }
     public Product getProduct(String s) {

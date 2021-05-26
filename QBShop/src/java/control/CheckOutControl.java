@@ -61,9 +61,11 @@ public class CheckOutControl extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String address = request.getParameter("address");
+        String number = request.getParameter("number");
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
         Users users = (Users) session.getAttribute("acc");
+        int sdt = Integer.parseInt(number);
         try {
             long ID = new Date().getTime();
             Bill bill = new Bill();
@@ -71,7 +73,8 @@ public class CheckOutControl extends HttpServlet {
             bill.setAddress(address);
             bill.setEmail(users.getUserEmail());
             bill.setDate(new Timestamp(new Date().getTime()));
-            bill.setTotal(cart.total());
+            bill.setTotal(cart.total() + 30000);
+            bill.setNumber(sdt);
             System.out.println("bill id: "+bill.getBillID() + "+ " + bill.getAddress() +"+" + 2);
             billDAO.insertBill(bill);           
             for (Map.Entry<Long, Item> list : cart.getCartItems().entrySet()) {

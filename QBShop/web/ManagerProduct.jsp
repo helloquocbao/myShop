@@ -11,7 +11,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>Zay | Quản lý</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -142,15 +142,14 @@
                                 <a style=" padding-left: 20px; padding-right: 20px"  class=" text-white mt-2" href="listProduct"> Sản phẩm</a>
                                 <a style="  padding-right: 20px" class=" text-white mt-2" href="managerAccount"> Tài khoản</a>
                                 <a  class=" text-white mt-2" href="managerOder"> Đơn hàng</a>
-                                <div class="input-group" style="display: flex; padding-top: 15px">
-                                    <div >
-                                        <input type="search" id="form1" class="form-control" />
-
-                                    </div>
-                                    <button type="button" class="btn btn-primary">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
+                               <form action="SearchMN" method="post" class="modal-content modal-body border-0 p-0" style="width: 300px;height: 10px; margin-top: 10px; display: flex">
+                                   <div  style="display: flex; width: 400px">
+                            <input type="text" class="form-control" id="inputModalSearch" name="txt" placeholder="Search ...">
+                            <button type="submit" class="input-group-text bg-success text-light">
+                                <i class="fa fa-fw fa-search text-white"></i>
+                            </button>
+                        </div>
+                    </form>
                             </h2>
                             
                         </div>
@@ -204,7 +203,7 @@
                     </tbody>
                 </table>
                 <div class="clearfix">
-                    <div class="hint-text">Hiển thị <b>6</b> trong số <b>${count}</b> entries</div>
+                    <div class="hint-text">Hiển thị <b>6</b> trong số <b>${count}</b> sản phẩm</div>
                     <ul class="pagination">
                         <c:if test="${tag > 1}">
                             <li class="page-item "><a href="listProduct?index=${tag - 1}">Trước</a></li>

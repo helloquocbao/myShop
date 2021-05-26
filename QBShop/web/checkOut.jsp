@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>null</title>
+        <title>Zay shop</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,31 +43,36 @@
 
         <jsp:include page="header.jsp"></jsp:include>
 
-            <div class="container">
-                <div class="account">
+            <div class="container" style="height: 500px; margin-top: 40px ">
+                <div class="account" >
                     <h2 class="account-in">Lựa chọn phương thức thanh toán</h2>
                     <form action="CheckOutControl"  method="POST">
-                       <div>
-
-                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Địa chỉ</div>
-                        <div class="p-4">
-                                    <div class="input-group mb-4 border rounded-pill p-2" >
-                                        <input type="text" name="address" placeholder="Nhập địa chỉ" aria-describedby="button-addon3" class="form-control border-0">
-                                        
-                                    </div>
-                        
                         <div>
-                            <span>Loại hình</span>
-                            <select name="payment">
-                                <option value="Bank transfer"> Chuyển khoản ngân hàng</option>
-                                <option value="Live"> Trả tiền khi nhận hàng</option>
-                            </select>
-                        </div> 
-                        <input type="submit" value="Checkout"> 
+
+                            <div class="bg-light rounded-pill px-4 py-3 e font-weight-bold" style="text-align: center; width: 700px"> <h5>Thông tin nhận hàng</h5></div>
+                            <div class="p-4">
+                                <div class="input-group mb-4 border rounded-pill p-2" style="width: 700px">
+                                    <input type="text" name="address" placeholder="Nhập địa chỉ" aria-describedby="button-addon3" class="form-control border-0">
+
+                                </div>
+                                <div class="input-group mb-4 border rounded-pill p-2"  style="width: 270px">
+                                    <input type="number" name="number"  maxlength="10"  placeholder="Số điện thoại nhận hàng" aria-describedby="button-addon3" class="form-control border-0">
+
+                                </div>
+                                <div style="margin-top: 40px">
+                                    <span>Loại hình</span>
+                                    <select name="payment">
+                                        <option value="Bank transfer"> Chuyển khoản ngân hàng</option>
+                                        <option value="Live"> Trả tiền khi nhận hàng</option>
+                                    </select>
+                                </div> 
+                                <input style="margin-top: 40px" class="btn btn-success" type="submit" value="Hoàn tất"> 
+
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
-
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>

@@ -12,7 +12,7 @@
         
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register</title>
-         <title>Zay Shop eCommerce HTML CSS Template</title>
+         <title>Zay Shop | Đăng ký</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

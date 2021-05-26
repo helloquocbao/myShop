@@ -5,26 +5,30 @@
  */
 package control;
 
+import dao.CategoryDAO;
+import dao.GenderDAO;
 import dao.ProductDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Category;
+import model.Gender;
 import model.Product;
 
 /**
  *
  * @author QuocBao
  */
-@WebServlet(name = "ShopSingleControl", urlPatterns = {"/shop-single"})
-public class ShopSingleControl extends HttpServlet {
+@WebServlet(name = "SearchMN", urlPatterns = {"/SearchMN"})
+public class SearchMN extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,17 +42,30 @@ public class ShopSingleControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        String proID = request.getParameter("product");
-        
-        ProductDAO productDAO = new ProductDAO();
-        
-        Product product = productDAO.getProductByID(Integer.parseInt(proID));
-         List<Product> listR =productDAO.getListProductByCategory2(proID);
-         request.setAttribute("listR", listR);
-        request.setAttribute("p" ,product);
-        request.getRequestDispatcher("shop-single.jsp").forward(request, response);
-        
+       request.setCharacterEncoding("UTF-8");
+       String txtSearch = request.getParameter("txt");
+            System.out.println("day la" + txtSearch);
+           String indexPage = request.getParameter("index");
+           if(indexPage == null){
+               indexPage ="1";
+           }
+           int index = Integer.parseInt(indexPage);
+           ProductDAO productDAO = new ProductDAO();
+           int count = productDAO.countProduct();
+           int endPage = count/6;
+           if(count %6 == 0){
+               endPage++;
+           }
+
+       ProductDAO dao= new ProductDAO();
+       
+       List<Product> list = dao.getListProductByName2(txtSearch,index);
+       
+       request.setAttribute("listP", list);
+       request.setAttribute("count", count);
+       request.setAttribute("endP", endPage);
+       request.setAttribute("tag", index);
+        request.getRequestDispatcher("ManagerProduct.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -66,7 +83,7 @@ public class ShopSingleControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ShopSingleControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SearchMN.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -84,7 +101,7 @@ public class ShopSingleControl extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ShopSingleControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SearchMN.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
