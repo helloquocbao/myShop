@@ -42,10 +42,10 @@ public class AddControl extends HttpServlet {
         String image = request.getParameter("image");
         String price = request.getParameter("price");
         String Description = request.getParameter("description");
-        String title = request.getParameter("title");
+      
         String category = request.getParameter("category");
         String gender = request.getParameter("gender");
-        
+          System.out.println(name + image + price + category);
         ProductDAO dao = new ProductDAO();
         dao.insertProduct(category, gender, name, image, price, Description);
         response.sendRedirect("listProduct");

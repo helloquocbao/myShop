@@ -155,7 +155,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm</span></a>
+                            <a href="AddProduct.jsp"  class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm</span></a>
                             <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Xóa</span></a>						
                         </div>
                     </div>
@@ -213,9 +213,9 @@
                             <li class="page-item ${tag == i ? "active":""}"><a href="listProduct?index=${i}" class="page-link">${i}</a></li>
 
                         </c:forEach>
-                        <c:if test="${tag < endP}">
+                        
                             <li class="page-item"><a href="listProduct?index=${tag + 1}" class="page-link">Tiếp theo</a></li>
-                            </c:if>
+                         
                     </ul>
                 </div>
             </div>
@@ -223,60 +223,7 @@
 
         </div>
         <!-- Edit Modal HTML -->
-        <div id="addEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="add" method="post">
-                        <div class="modal-header">						
-                            <h4 class="modal-title">Thêm sản phẩm</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">					
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input name="name" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Image</label>
-                                <input name="image" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input name="price" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Title</label>
-                                <textarea name="title" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select name="category" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listC}" var="o">
-                                        <option value="${o.categoryID}">${o.categoryName}</option>
-                                    </c:forEach>
-                                </select>
-                                <label>Giới tính</label>
-                                <select name="gender" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listG}" var="o">
-                                        <option value="${o.genderID}">${o.genderName}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-success" value="Add">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- Delete Modal HTML -->
         <div id="deleteEmployeeModal" class="modal fade">
