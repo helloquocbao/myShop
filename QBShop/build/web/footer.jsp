@@ -12,7 +12,8 @@
         <title>Zay shop</title>
     </head>
     <body>
-        <footer class="bg-dark" id="tempaltemo_footer">
+        
+        <div class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             <div class="row">
 
@@ -58,7 +59,7 @@
                 </div>
 
             </div>
-
+           
             <div class="row text-light mb-4">
                 <div class="col-12 mb-3">
                     <div class="w-100 my-3 border-top border-light"></div>
@@ -88,7 +89,7 @@
                 </div>
             </div>
         </div>
-
+            
         <div class="w-100 bg-black py-3">
             <div class="container">
                 <div class="row pt-2">
@@ -101,7 +102,9 @@
                 </div>
             </div>
         </div>
+            <script lang="javascript">var __vnp = {code : 6710,key:'', secret : 'a7294b2e36e9bed1da15b5e422a6cf70'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//core.vchat.vn/code/tracking.js';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
+    </div>
+  
 
-    </footer>
-    </body>
+    </body>  
 </html>

@@ -62,7 +62,7 @@
                                 <div style="margin-top: 40px">
                                     <span>Loại hình</span>
                                     <select name="payment">
-                                        <option value="Bank transfer"> Chuyển khoản ngân hàng</option>
+                                       
                                         <option value="Live"> Trả tiền khi nhận hàng</option>
                                     </select>
                                 </div> 
