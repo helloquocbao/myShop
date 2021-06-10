@@ -70,7 +70,7 @@
                         
                     </div></ul>
                         <ul><div class="form-group col-md-6 mb-3">
-                        <label for="inputname">Số điện thoại</label>
+                        <label for="inputname">Số điện thoại( +84)</label>
                         <input value="${sessionScope.acc.number}" type="number"  required="yes" class="form-control mt-1"  name="number" placeholder="Họ và tên">
                         
                     </div></ul>

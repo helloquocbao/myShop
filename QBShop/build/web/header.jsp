@@ -60,6 +60,11 @@
                         <a class="nav-link" href="listProduct">Quản lý</a>
                         </li>
                         </c:if>
+                        <c:if  test="${sessionScope.acc.isAdmin  == 0}">
+                        <li class="nav-item">
+                        <a class="nav-link" href="loadListMyBill?uid=${sessionScope.acc.userEmail}">Đơn Hàng</a>
+                        </li>
+                        </c:if>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">                

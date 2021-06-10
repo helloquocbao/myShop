@@ -53,13 +53,33 @@ public class BillDAO {
         }
         return list;
     }
+    
+    public ArrayList<Bill> getListBillByUser(String userID) throws SQLException {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT bill.date, bill.total, bill.address, bill.bill_id FROM bill "
+                + "WHERE bill.user_id = '"+userID+"'";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Bill> list = new ArrayList<>();
+        while (rs.next()) {
+           Bill bill = new Bill();
+            bill.setBillID(rs.getLong("bill_id"));
+           
+            bill.setTotal(rs.getLong("total"));
+            bill.setAddress(rs.getString("address"));
+            bill.setDate(rs.getTimestamp("date"));
+            
+            list.add(bill);
+        }
+        return list;
+    }
 
     public static void main(String[] args) throws SQLException {
 
         
         BillDAO dao = new BillDAO();
-        for (Bill ds : dao.getListBill()){
-            System.out.println(ds.getBillID() + " - "+ ds.getEmail());
+        for (Bill ds : dao.getListBillByUser("bao@gmail.com")){
+            System.out.println(ds.getBillID() + " - "+ ds.getTotal() );
         }
     }
 }
